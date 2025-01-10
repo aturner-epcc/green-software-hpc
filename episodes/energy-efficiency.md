@@ -74,42 +74,64 @@ Clean energy comes from renewable, zero-emission sources that do not pollute the
 
 ## How to improve energy efficiency
 
-Now that we know how energy is produced and the associated cost in terms of emissions, based on whether low- or high-carbon energy sources are used, let's take a look at some of the ways green software practitioners can improve energy efficiency. Understanding power usage effectiveness and energy proportionality means you can make better decisions in terms of how to use energy in the most efficient way possible and waste less.
+Now that we know how energy is produced and the associated cost in terms of emissions, based on whether low- or high-carbon energy sources are used, let's take a look at some of the ways energy efficiency can be improved on HPC systems. Understanding power usage effectiveness and energy proportionality means you can make better decisions in terms of how to use energy in the most efficient way possible and waste less.
 
 ### Power usage effectiveness
 
-The data center industry uses the [power usage effectiveness](https://datacenters.lbl.gov/sites/default/files/WP49-PUE%20A%20Comprehensive%20Examination%20of%20the%20Metric_v6.pdf) (PUE) metric, developed by Green Grid in 2006, to **measure data center energy efficiency**. Specifically, this relates to how much energy the computing equipment uses as compared to cooling and other overheads supporting the equipment. When a data center's PUE is close to 1.0, computing is using nearly all energy. When the PUE is 2.0, this means an additional watt of IT power is required to cool and distribute power to the IT equipment for every watt of IT power it uses.
+The data center industry uses the [power usage effectiveness](https://datacenters.lbl.gov/sites/default/files/WP49-PUE%20A%20Comprehensive%20Examination%20of%20the%20Metric_v6.pdf) (PUE) metric, developed by Green Grid in 2006, to **measure data center energy efficiency**. Specifically, this relates to how much energy the computing equipment uses as compared to cooling and other overheads supporting the equipment. When a data center's PUE is close to 1.0, computing is using nearly all energy. When the PUE is 2.0, this means an additional watt of power is required to cool and distribute power to the HPC equipment for every watt of HPC power it uses.
 
-Another way to think of PUE is as a multiplier to your application’s energy consumption. So, for example, if your application consumed 10 kWh and the PUE of the data center where it is running is 1.5, then the actual consumption from the grid is 15 kWh: 5kWh goes towards the operational overhead of the data center, and 10 kWh goes to the servers that are running your application.
+Another way to think of PUE is as a multiplier to your energy consumption when using HPC. So, for example, if your use consumed 10 kWh and the PUE of the data center where it is running is 1.5, then the actual consumption from the grid is 15 kWh: 5kWh goes towards the operational overhead of the data center, and 10 kWh goes to the servers that are running your application.
 
 ![Diagram illustrating power usage effectiveness (PUE) of data centres](./fig/05_power_usage.png "image_tooltip")
 
+In many cases, PUE is not constant over time for the data centres that host HPC systems. The PUE value often depends on how much energy is required to cool the system. This obviously varies with load (as the more work a system is doing, the more power it is drawing and the more cooling it requires) but it often also varies with atmospheric conditions - the cooler the air temperature is, the less additional power you need to draw to cool the HPC system. HPC systems hosted in cooler locations can often make use of "free cooling" where refrigeration technology is not required to cool the system, the outside air (or water) temperature is cool enough to do this without the need for mechanical cooling.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+The PUE of the Advanced Data Centre (ACF) facility that hosts the ARCHER2 system in Edinburgh typically has a PUE of 1.1 as measured over a calendar year. As the ACF is situated in Scotland where air temperatures are cool, it benefits from free cooling for a large proportion of the year.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Energy proportionality
 
-[Energy proportionality](https://research.google/pubs/pub33387/), first proposed in 2007 by engineers at Google, measures **the relationship between power consumed by a computer and the rate at which useful work is done** (its utilization).
+[Energy proportionality](https://research.google/pubs/pub33387/), first proposed in 2007 by engineers at Google, measures **the relationship between power consumed by a computer and the rate at which useful work is done** (its utilisation).
 
-Utilization measures how much of a computer's resources are used, usually given as a percentage. A fully utilized computer running at its maximum capacity has a high percentage, while an idle computer with no utilization has a lower percentage.
+Utilisation measures how much of a computer's resources are used, usually given as a percentage. A fully utilised computer running at its maximum capacity has a high percentage, while an idle computer with no utilisation has a lower percentage.
 
-The relationship between power and utilization is not proportional. Mathematically speaking, proportionality between two variables means their ratios are equivalent. For example, at 0% utilization, a computer can draw 100W; at 50%, it draws 180W; and at 100%, it draws 200W. The relationship between power consumption and utilization is not linear and does not cross the origin.
+The relationship between power and utilization is not proportional. Mathematically speaking, proportionality between two variables means their ratios are equivalent. For example, at 0% utilisation, a computer may draw 100 W; at 50%, it draws 180 W; and at 100%, it draws 200 W. The relationship between power consumption and utiliation is not linear and does not cross the origin.
 
 ![Schematic graph showing relationship between power draw and utilisation of computer infrastructure](./fig/06_energy_proportionality_updated.png "image_tooltip")
 
-Because of this, the more we utilize a computer, the more efficient it becomes at converting electricity to practical computing operations. One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilization rate, maximizing energy efficiency.
+Because of this, the more we utilise a computer, the more efficient it becomes at converting electricity to practical computing operations. One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilisation rate, maximising energy efficiency.
+
+However, the story for HPC use is actually less straightforward than this description. The energy proportionality argument holds when the performance of an application is *compute bound* - that is, when the output from the application you are running is strongly correlated with the performance of the processors (actually, for HPC, it is typically the performance of the floating point units in the processors). The performance of many HPC applications is actually *memory-bound* so the performance is dependent on the performance of data moving from memory to be processed. In these cases, once you are above a certain performance threshold for the floating point units any additional power draw does not lead to increased utilisation (i.e. useful performance for the application); the more you you utilise the processor, the more power you draw but you do not get any additional useful performance so this is just wasted electricity, reducing the energy efficiency of your use. It becomes even more complex as you run parallel applications (as typically happens on HPC resources) as the change in parallel distribution can change the balance between compute bound and memory bound performance for your application.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+Performance of HPC applications can be: compute-bound, memory-bound, IO-bound, communications-bound and the utilisation argument made above only really applies to applications where performance is strongly compute-bound. In reality, the performance of most HPC applications is bound by different limits at different stages in their execution (e.g. IO-bound while reading in large datasets, compute-bound while calculating) and so a theoretical analysis of how the energy consumption changes as a function of processor utilisation is difficult to perform.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Given this complexity, what practical steps can you take to decide on how to run in an energy-efficient manner on HPC systems? The answer is to run some test cases and measure the energy consumption and performance, then change parameters (such as processor power cap, or number of parallel processes) and measure again to see what the impact is on both performance and energy consumption. Using a benchmarking approach such as this, you can practically improve the energy efficiency of your use of HPC.
+
+<!-- Show effect of reducing processor performance on energy efficiency on ARCHER2 -->
+
+<!-- Exercise with energy use and performance data, attendees to use this to propose the most energy efficienct configuration for a simulation run -->
 
 #### Static power draw
 
 The static power draw of a computer is **how much electricity is drawn when in an idle state**. The static power draw varies by configuration and hardware components, but all parts have some static power draw. This is one of the reasons that PCs, laptops, and end-user devices have power-saving modes. If the device is idle, it will eventually trigger a hibernation mode and put the disk and screen to sleep or even change the CPU's frequency. These power-saving modes save on electricity, but they have other trade-offs, such as a slower restart when the device wakes up.
 
-Servers are usually not configured for aggressive or even minimal power saving. Many use cases running on servers demand total capacity as quickly as possible because the server needs to respond to rapidly changing demands, which leads to many servers in idle modes during low-demand periods. An idle server has a carbon cost from both the embedded carbon as well as its inefficient utilization.
+HPC systems are usually not configured for aggressive or even minimal power saving. Many use cases running on servers demand total capacity as quickly as possible because the server needs to respond to rapidly changing demands, which leads to many servers in idle modes during low-demand periods. An idle server has a carbon cost from both the embedded carbon as well as its inefficient utilisation. This is one reason why the goal of many HPC systems is to maximise utilisation.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- In regions of high carbon intensity electricty production, electricity is a proxy for carbon, so using HPC in an energy efficient way is equivalent to using HPC in a way that is carbon efficient.
-- In regions of low carbon intensity electricity production, electricity is not a good proxy for carbon. 
-- Green software takes responsibility for its electricity consumption and is designed to consume as little as possible.
-- Quantifying the energy consumption of an application is a step in the right direction to start thinking about how an application can operate more efficiently. However, understanding your application's energy consumption is not the only story. The hardware your software is running on uses some of the electricity for operational overhead. This is called power usage efficiency (PUE) in the cloud space.
+- In regions of high carbon intensity electricity production, electricity is a good proxy for carbon, so using HPC in an energy efficient way is equivalent to using HPC in a way that is carbon efficient.
+- In regions of low carbon intensity electricity production, electricity is not a good proxy for carbon.
+- Green HPC use takes responsibility for its electricity consumption and considers how this relates to carbon emissions.
+- Quantifying the energy consumption of your HPC use is a step in the right direction to start thinking about how you can operate more efficiently. However, understanding the energy consumption of your use of HPC is not the only story. The hardware your software is running on uses some of the electricity for operational overhead. This is called power usage efficiency (PUE) for HPC systems (and for computing resources hosted in data centres more generally).
 - The concept of energy proportionality adds another layer of complexity since hardware becomes more efficient at turning electricity into useful operations the more it's used.
-- Understanding this gives green software practitioners a better insight into how their application behaves with respect to energy consumption in the real world.
+- Understanding this gives us a better insight into how your HPC use behaves with respect to energy consumption in the real world.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
