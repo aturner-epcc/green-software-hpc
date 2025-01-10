@@ -4,7 +4,12 @@ site: sandpaper::sandpaper_site
 ---
 
 This lesson introduces environmental sustainability principles in the context of 
-high performance computing systems.
+high performance computing (HCP) systems.
+
+:::::::::::::::::::::::::::::::::::::: callout
+
+This workshop is based on and builds on the material in the [Green Software Practitioner](https://learn.greensoftware.foundation/)
+course developed by the [Green Software Foundation](https://greensoftware.foundation/).
 
 ::::::::::::::::::::::::::::::::::::::  objectives
 
