@@ -22,11 +22,11 @@ Green software use is an emerging discipline at the intersection of climate scie
 
 Green software use is carbon-efficient software use, meaning it emits the least carbon possible. Only three activities reduce the carbon emissions of software; energy efficiency, carbon awareness, and hardware efficiency. This workshop will explain all of these concepts, how to apply them to use cases on high-performance computing (HPC) systems and how to measure them, as well as some of the international guidelines and organisations that guide and monitor this space.
 
-![alt_text](./fig/01_carbon_efficiency.png "image_tooltip")
+![Diagram illustrating three activities that can reduce carbon emissions from software use](./fig/01_carbon_efficiency.png "image_tooltip")
 
 ## Who is this aimed at?
 
-Anyone involved in using HPC resources - either as a user, a developer of software for use on HPC or even professionals. By studying these principles, you will be able to better understand the effect of their use of HPC on carbon emissions, where it fits with emisisons from your other activities and what concrete actions you can take to reduce your emissions and the size of the impact from these reductions.
+Anyone involved in using HPC resources - either as a user, a developer of software for use on HPC or even professionals. By studying these principles, you will be able to better understand the effect of their use of HPC on carbon emissions, where it fits with emissions from your other activities and what concrete actions you can take to reduce your emissions and the size of the impact from these reductions.
 
 ## History
 
@@ -57,7 +57,7 @@ Practices should refer to patterns that should refer to principles.
 
 The green software foundation publishes a [catalog of vendor-neutral green software patterns](https://patterns.greensoftware.foundation/) across various categories.
  
-![Green Software Principles, Patterns, and Practices](./fig/GSF_Principles_Patterns_Practices_v2.png "Green Software Principles, Patterns, and Practices")
+![Diagram illustrating green software principles, patterns, and practices](./fig/GSF_Principles_Patterns_Practices_v2.png "Green Software Principles, Patterns, and Practices")
 
 <!--  LocalWords:  keypoints links.md endcomment
  -->
