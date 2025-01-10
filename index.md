@@ -11,6 +11,8 @@ high performance computing (HCP) systems.
 This workshop is based on and builds on the material in the [Green Software Practitioner](https://learn.greensoftware.foundation/)
 course developed by the [Green Software Foundation](https://greensoftware.foundation/).
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::::::::::  objectives
 
 ## After completing this session you should:
@@ -23,7 +25,6 @@ course developed by the [Green Software Foundation](https://greensoftware.founda
   using HPC systems.
 - Have an appreciation of how GHG emission trends from HPC systems may change in the
   future
-  
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
