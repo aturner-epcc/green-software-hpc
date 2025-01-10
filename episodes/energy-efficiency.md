@@ -41,7 +41,7 @@ Collectively, we all take responsibility for the energy consumed by HPC systems 
 
 Let’s take a look at some of these concepts and some ways that you can become more energy efficient at every stage.
 
-![alt_text](./fig/03_energy_efficiency.png "image_tooltip")
+![Diagram illustrating the chain of electricity use in server/HPC setup](./fig/03_energy_efficiency.png "Diagram illustrating the chain of electricity use in server/HPC setup")
 
 ## Key concepts
 
@@ -49,7 +49,7 @@ Let’s take a look at some of these concepts and some ways that you can become 
 
 Across the world, a lot of electricity is produced through burning fossil fuels, [usually coal](https://ourworldindata.org/grapher/world-electricity-by-source). Fossil fuels are made from decomposing plants and animals. These fuels are found in the Earth's crust and contain carbon and hydrogen, which can be burned for energy. Coal, oil, and natural gas are examples of fossil fuels.
 
-![Diagram of link from fossil fuels to energy](./fig/04_high-carbon_sources.png "image_tooltip")
+![Diagram of link from fossil fuels to energy](./fig/04_high-carbon_sources.png "Diagram of link from fossil fuels to energy")
 
 Most people think electricity is clean. Our hands don't get dirty when we plug something into a wall, and our laptops don't need exhaust pipes. However, in some geographical regions most electricity comes from burning fossil fuels and energy supply is the [single most significant](https://www.eea.europa.eu/data-and-maps/daviz/change-of-co2-eq-emissions-2#tab-chart_4) cause of carbon emissions. For HPC services hosted in such locations, we can draw a direct line from electricity to carbon emissions and, hence, electricity can be considered a proxy for carbon. If our goal is to be carbon efficient in out use of HPC hosted in these regions, then it means our goal is also to be energy efficient since energy is a proxy for carbon. This means using the least amount of energy possible per unit of work.
 
@@ -82,7 +82,7 @@ The data center industry uses the [power usage effectiveness](https://datacenter
 
 Another way to think of PUE is as a multiplier to your energy consumption when using HPC. So, for example, if your use consumed 10 kWh and the PUE of the data center where it is running is 1.5, then the actual consumption from the grid is 15 kWh: 5kWh goes towards the operational overhead of the data center, and 10 kWh goes to the servers that are running your application.
 
-![Diagram illustrating power usage effectiveness (PUE) of data centres](./fig/05_power_usage.png "image_tooltip")
+![Diagram illustrating power usage effectiveness (PUE) of data centres](./fig/05_power_usage.png "Diagram illustrating power usage effectiveness (PUE) of data centres")
 
 In many cases, PUE is not constant over time for the data centres that host HPC systems. The PUE value often depends on how much energy is required to cool the system. This obviously varies with load (as the more work a system is doing, the more power it is drawing and the more cooling it requires) but it often also varies with atmospheric conditions - the cooler the air temperature is, the less additional power you need to draw to cool the HPC system. HPC systems hosted in cooler locations can often make use of "free cooling" where refrigeration technology is not required to cool the system, the outside air (or water) temperature is cool enough to do this without the need for mechanical cooling.
 
@@ -100,7 +100,7 @@ Utilisation measures how much of a computer's resources are used, usually given 
 
 The relationship between power and utilization is not proportional. Mathematically speaking, proportionality between two variables means their ratios are equivalent. For example, at 0% utilisation, a computer may draw 100 W; at 50%, it draws 180 W; and at 100%, it draws 200 W. The relationship between power consumption and utiliation is not linear and does not cross the origin.
 
-![Schematic graph showing relationship between power draw and utilisation of computer infrastructure](./fig/06_energy_proportionality_updated.png "image_tooltip")
+![Schematic graph showing relationship between power draw and utilisation of computer infrastructure](./fig/06_energy_proportionality_updated.png "Schematic graph showing relationship between power draw and utilisation of computer infrastructure")
 
 Because of this, the more we utilise a computer, the more efficient it becomes at converting electricity to practical computing operations. One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilisation rate, maximising energy efficiency.
 
