@@ -122,7 +122,7 @@ Given this complexity, what practical steps can you take to decide on how to run
 
 The static power draw of a computer is **how much electricity is drawn when in an idle state**. The static power draw varies by configuration and hardware components, but all parts have some static power draw. This is one of the reasons that PCs, laptops, and end-user devices have power-saving modes. If the device is idle, it will eventually trigger a hibernation mode and put the disk and screen to sleep or even change the CPU's frequency. These power-saving modes save on electricity, but they have other trade-offs, such as a slower restart when the device wakes up.
 
-HPC systems are usually not configured for aggressive or even minimal power saving. Many use cases running on servers demand total capacity as quickly as possible because the server needs to respond to rapidly changing demands, which leads to many servers in idle modes during low-demand periods. An idle server has a carbon cost from both the embedded carbon as well as its inefficient utilisation. This is one reason why the goal of many HPC systems is to maximise utilisation.
+HPC systems are usually not configured for aggressive or even minimal power saving when idle. Many use cases running on servers demand total capacity as quickly as possible because the server needs to respond to rapidly changing demands, which leads to many servers in idle modes during low-demand periods. An idle server has a carbon cost from both the embedded carbon as well as its inefficient utilisation. This is one reason why the goal of many HPC systems is to maximise utilisation.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
