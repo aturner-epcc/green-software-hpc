@@ -108,6 +108,8 @@ However, the story for HPC use is actually less straightforward than this descri
 
 :::::::::::::::::::::::::::::::::::::::: callout
 
+## HPC application performance
+
 Performance of HPC applications can be: compute-bound, memory-bound, IO-bound, communications-bound and the utilisation argument made above only really applies to applications where performance is strongly compute-bound. In reality, the performance of most HPC applications is bound by different limits at different stages in their execution (e.g. IO-bound while reading in large datasets, compute-bound while calculating) and so a theoretical analysis of how the energy consumption changes as a function of processor utilisation is difficult to perform.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
