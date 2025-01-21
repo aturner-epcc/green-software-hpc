@@ -6,78 +6,107 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- TBC
+- Understand how emissions are classified in the widely-used GHG protocol
+- Know which GHG protocol classifications are relevant to use of HPC systems
+- Learn a methodology to use GHG protocol to estimate the emissions associated with our use of HPC systems
+- Understand how emission rates from software can be calculated using the SCI specification
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- TBC
+- How are emissions measured and classified under the GHG protocol?
+- How do I use the GHG protocol to estimate emissions from my use of HPC?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
-The Greenhouse Gas (GHG) protocol is the most commonly-used method for organizations to measure their total carbon emissions. Understanding GHG scopes and how to measure your software against industry standards will help you see to what extent you are applying Green Software principles and how far you have to go to improve.
+The Greenhouse Gas (GHG) protocol is the most commonly-used method for organisations to measure their total carbon emissions. Understanding GHG scopes and how to measure your software against industry standards will help you see to what extent you are reducing carbon emissions and how that fits with wider activities to reduce emissions.
 
-To complement the GHG protocol, you can also use the Software Carbon Intensity (SCI) specification. While the GHG is a more generic measurement suitable for all types of organizations, the SCI is specifically for measuring a rate of software emissions and designed to incentivize the elimination of those emissions.
-
-The GHG is a protocol to measure total emissions, the SCI is a tool to enable the elimination of software driven emissions.
-
-We will look at each of the measurement methodologies and explain how to calculate in either case.
+To complement the GHG protocol, and if yo develop software that is used by others, you can also use the Software Carbon Intensity (SCI) specification. While the GHG is a more generic measurement suitable for all types of organisations, the SCI is specifically for measuring a rate of software emissions and designed to incentivise the elimination of those emissions.
 
 ## The GHG protocol
 
-The [Greenhouse Gas protocol](https://ghgprotocol.org) is the most widely used and internationally recognized greenhouse gas accounting standard. [92%](https://ghgprotocol.org/about-us) of Fortune 500 companies use the GHG protocol when calculating and disclosing their carbon emissions.
+The [Greenhouse Gas protocol](https://ghgprotocol.org) is the most widely used and internationally recognized greenhouse gas accounting standard. [92%](https://ghgprotocol.org/about-us) of Fortune 500 companies use the GHG protocol when calculating and disclosing their carbon emissions and it provides the basis of emissions reporting for most countries (including the UK). Using the GHG protocol allows us to compare our emissions from use of HPC systems to other sources of emissions in a quantitative way.
 
 The GHG protocol divides emissions into three scopes:
 
-- **Scope 1**: Direct emissions from **operations** owned or controlled by the reporting organization, such as on-site fuel combustion or fleet vehicles.
+- **Scope 1**: Direct emissions from **operations** owned or controlled by the reporting organisation, such as on-site fuel combustion or fleet vehicles.
 - **Scope 2**: Indirect emissions related to **emission generation of purchased energy**, such as heat and electricity.
-- **Scope 3**: Other indirect emissions from all the other activities you are engaged in. Including all **emissions from an organization's supply chain;** business travel for employees, and the electricity customers may consume when using your product.
+- **Scope 3**: Other indirect emissions from all the other activities you are engaged in. Scope 3 emissions are typically split into two further categories: *Upstream Emissions* and *Downstream Emissions*:
+   + **Upstream Scope 3 Emissions**: Includes all emissions from an organisation's supply chain, e.g. emissions from manufacturing and shipping a product
+   + **Downstream Scope 3 Emissions**: Emissions resulting from the use of a product, e.g. the electricity customers may consume when using your product or waste output from the product
 
-Scope 3, sometimes referred to as value chain emissions, is the most significant source of emissions and the most complex to calculate for many organizations. These encompass the full range of activities needed to create a product or service, from conception to distribution. In the case of a laptop, for example, every raw material used in its production emits carbon when being extracted and processed. Value chain emissions also include emissions from the use of the laptop, meaning the emissions from the energy used to power the laptop after it has been sold to a customer.
+Scope 3, sometimes referred to as value chain emissions, is the most significant source of emissions and the most complex to calculate for many organisations. These encompass the full range of activities needed to create a product or service, from conception to distribution. In the case of a laptop, for example, every raw material used in its production emits carbon when being extracted and processed (part of the upstream scope 3 emissions). Value chain emissions also include emissions from the use of the laptop, meaning the emissions from the energy used to power the laptop after it has been sold to a customer (part of downstream scope 3 emissions).
 
 Through this approach, it's possible to sum up all the GHG emissions from every organization and person in the world and reach a global total.
 
 ### What scope does my application fall into?
 
-We have already seen how the GHG protocol asks us to bucket software emissions according to scopes 1-3. But how does this work when it comes to software?
+We have already seen how the GHG protocol asks us to bucket emissions from HPC system use according to scopes 1-3. But how do we actually do this?
 
-Most organizations have many applications running with different architectures and in different environments. As such, the scope your emissions fall into, both in terms of energy generated as well as embodied carbon, depending on your specific scenario.
+:::::::::::::::::::::::::::::::::::::::  challenge
 
-![alt_text](./fig/22_scope.png "image_tooltip")
+## Exercise: What scope for HPC emissions?
 
-- **For cloud applications running on servers that you own**, the energy usage of your software falls into scope 2, and the embodied carbon of all your servers falls into scope 3.
-- **For cloud applications running on a public cloud**, both the energy usage of your application and the embodied carbon fall into scope 3.
-- In scenarios where **you are running a hybrid private/public cloud application**, part of its emissions will fall into scope 2 and part will fall into scope 3.
-- Similarly, for your customer-facing **front-end application**, energy usage falls into your organization's scope 3, since your customer will purchase the energy to power their device.
+Throughout this course we have spoken about emissions from two different sources associated with our use of HPC: emissions from the electricity used to run our models/simulations on HPC systems and embodied emissions from the HPC system hardware. Given the definitions of scope 1-3 emissions given above, what scope do you think these two different sources of HPC system use emissions fall into?
 
-For software, regardless of whether it's run on infrastructure you own, rent, or consumers own, there are three parameters to consider for bucketing emissions:
+:::::::::::::::  solution
 
-- How much energy it consumes
+## Solution
+
+- Emissions from electricity used: these would be classified as Scope 2 emissions
+- Emboidied emissions from HPC system hardware: these would be classified as Upstream Scope 3 emissions
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+When using HPC systems there are three parameters to consider for bucketing emissions:
+
+- How much electricity it consumes
 - How clean or dirty that electricity is
 - How much hardware it needs to function
 
-### Is it possible to calculate a total for software carbon emissions?
+:::::::::::::::::::::::::::::::::::::::  callout
 
-To calculate a total for software carbon emissions, you need access to detailed data regarding the energy consumption, carbon intensity, and hardware that your software is running on. This is challenging data to gather, even in the case of an organization's own closed-source software products where they can track its usage with telemetry or logs.
+## HPC elecricity: Scope 2 or Downstream Scope 3?
 
-Open-source software maintainers don't have the same visibility into how and where their software is used, how much energy is consumed, and on what hardware.
+Whether the emissions from electricity use on HPC systems are Downstream Scope 3 or Scope 2 really depends on who is computing the emissions and for what purpose. From the viewpoint of the hardware vendor who sells and manufactures the HPC system, the electricity use falls into Downstream Scope 3 emissions but for operators and users of the HPC system they would classified as Scope 2 emissions. As we are approaching this subject as users of HPC systems we will always classify the emissions from our electricity use on HPC systems as Scope 2.
 
-Open-source projects typically have multiple contributors from multiple organizations. As a result, it’s unclear who should be responsible for calculating the emissions as well as who is accountable for eliminating them. When you also consider that open-source software makes up 90% of a typical enterprise stack, it is clear that there is going to be a large amount of carbon emissions that are not accounted for.
+In short, Downstream Scope 3 emissions are not usually relevant for use of HPC systems as this part of the emissions is reported in the Scope 2 emissions.
 
-### Do totals tell the whole story?
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-A total is only one metric that describes the state of something. To make the right decisions, you need to look at many different metrics.
+### Measuring emissions associated with your use of HPC systems
 
-Imagine a scenario where you are the leader of an organization and charged with reducing the emissions of your software. You measure the emissions in Q1 and come out with a total of 34 tonnes. After making some investments into projects that eliminate emissions, you find that by Q2 the emissions have increased to 45 tonnes. Does this mean your efforts failed?
+<!-- TODO
 
-Not necessarily. We know that a total by itself doesn't tell the whole story and must look at other metrics to find out if an emissions-reduction project has been successful. For example, if you measured the carbon intensity as well as the carbon total, you might come out with a different perspective. In the same project, if the carbon intensity was 3.3g CO2eq/user in Q1, and 2.9g CO2eq/user in Q2, you might consider the project a success and continue to invest further.
+Points to add:
+- Many HPC services now provide a way to extract your per-job energy use
+- To use this to estimate Scope 2 emissions, you also need the carbon intensity of electricity generation for the facility
+- A small but growing number may provide estimates of Upstream Scope 3 emissions which can be amortised across the service lifetime to estimate the per-job emissions
 
-While the total showed you that your organization's carbon emissions had increased overall, the intensity gave a more complete perspective that would help you to make a more informed decision on how to proceed.
+-->
+
+#### Scope 2 emissions
+
+<!-- TODO: how do you estimate Scope 2 emissions from your use of HPC (remember to add overheads!) -->
+
+#### Scope 3 emissions
+
+<!-- Emphasise this is Upstream Scope 3-->
+
+<!-- TODO: how do you estimate Scope 3 emissions from your use of HPC -->
+
+### Estimating emissions associated with future use of HPC systems
+
+<!-- TODO: Could be based on measurements you have made or some sort of more general model -->
 
 ## Software Carbon Intensity specification
+
+<!-- TODO: Note that this section is more useful to RSEs and software developers - we should include it to show the similarity of the methodology for compute user emissions from HPC, which are based on rates -->
 
 The [Software Carbon Intensity (SCI) specification](https://grnsft.org/sci) is a methodology developed by the Standards Working Group in the Green Software Foundation, designed to score a software application along a dimension of sustainability and to encourage action towards eliminating emissions.
 
@@ -153,10 +182,9 @@ You may calculate multiple SCI scores for the same application. The SCI score is
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- The GHG protocol is a metric for measuring an organization's total carbon emissions and is used by organizations all over the world.
-- The GHG protocol puts carbon emissions into three scopes. Scope 3, also known as value chain emissions, refers to the emissions from organizations that supply others in a chain. In this way, one organization's scope 1 and 2 will sum up into another organization's scope 3.
-- Calculating software-driven emissions using the GHG protocol is possible but can be difficult for open-source software.
-- The SCI is a metric designed specifically to calculate software emissions and is a rate rather than a total.
-- The functional unit of measurement is not prescribed in the SCI and you should choose something that reflects your application.
+- The GHG protocol is a metric for measuring an organisation's total carbon emissions and is used by organisations all over the world.
+- The GHG protocol puts carbon emissions into three scopes. Scope 3, also known as value chain emissions, refers to the emissions from organisations that supply others in a chain. In this way, one organisation's scope 1 and 2 will sum up into another organization's scope 3.
+- You can use the GHG protocol to estimate your emissions from HPC system use but it requires access to good quality information from the HPC systems you are using.
+- The SCI is a metric designed specifically to calculate software emissions and is a rate rather than a total and can be useful for RSEs or researchers who develop software to help them estimate emissions from the software they produce.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
