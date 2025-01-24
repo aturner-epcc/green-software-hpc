@@ -96,9 +96,12 @@ You may have come up with activities from the following list:
 
 In fact, **all** activities that we undertake as part of our research produce carbon emissions. While, in an ideal world, we would be able to reduce emissions from all our activities we have finite time and effort so need to prioritise based on which reduction strategies will have the largest impact. This means that the first step is to estimate the emissions from different activities we are involved in as part of our research, even if the estimate is very rough.
 
+- (Travel emissions calculator (Deloitte UK))[https://www.deloitte.com/uk/en/issues/climate/content/travel-emissions-calculator.html]
+- (Emissions from laptops (Circular Computing))[https://circularcomputing.com/news/carbon-footprint-laptop/]
 - (Transparent reporting of research-related greenhouse gas emissions through the scientific CO<sub>2</sub>nduct initiative)[https://www.nature.com/articles/s42005-022-00930-2]
 - (Quantifying the carbon footprint of clinical trials: guidance development and case studies)[https://pmc.ncbi.nlm.nih.gov/articles/PMC10823997/]
-- (UK government: Emissions measurement and reporting approaches for the public sector)[https://assets.publishing.service.gov.uk/media/66fa76de30536cb927482953/emissions-measurement-and-reporting-approaches-for-the-public-sector-report.pdf]
+- (Emissions measurement and reporting approaches for the public sector (UK Government))[https://assets.publishing.service.gov.uk/media/66fa76de30536cb927482953/emissions-measurement-and-reporting-approaches-for-the-public-sector-report.pdf]
+
 
 <!-- TODO: Link to resources that help estimate emissions from other parts of a research workflow (laptops, lab work, travel to/from work location) -->
 
