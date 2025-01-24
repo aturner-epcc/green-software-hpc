@@ -68,7 +68,7 @@ The green software foundation publishes a [catalog of vendor-neutral green softw
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Other research activities
+## Other research activities
 
 Use of HPC will be only one part of your research activities and may not even be the largest source of carbon emissions (though this does not mean you should not work to make your use of HPC more carbon efficient!). As well as understanding your carbon emissions from HPC, which this workshop will help you do, you also need to assess other activities you undertake as part of your research and try to estimate emissions associated with them.
 
@@ -105,7 +105,7 @@ In fact, **all** activities that we undertake as part of our research produce ca
 
 <!-- TODO: Link to resources that help estimate emissions from other parts of a research workflow (laptops, lab work, travel to/from work location) -->
 
-## Positive emissions impacts
+## Positive emissions impacts
 
 As well as reducing emissions from our use of HPC there are typically other sources of positive carbon emissions impact associated with HPC 
 
