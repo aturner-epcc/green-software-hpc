@@ -16,7 +16,7 @@ any HPC system.
 
 ::::::::::::::::::::::::::::::::::::::  objectives
 
-## After completing this session you should:
+## After completing this lesson you should:
 
 - Be able to understand the concept of carbon efficiency and how it relates to energy efficiency -
   including cases where energy efficiency can be at odds with carbon efficiency
