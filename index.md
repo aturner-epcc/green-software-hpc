@@ -10,7 +10,7 @@ sustainable way. This lesson will give you the ability to understand emissions a
 use of HPC system and how to quantify them. We will use practical examples and real data from
 an existing HPC facility to illustrate the concepts. By the end of this lesson you should:
 
-- Be able to understand the concept of carbon efficiency and how it relates to energy efficiency,
+- Be able to understand the concept of carbon efficiency and how it relates to energy efficiency -
   including cases where energy efficiency can be at odds with carbon efficiency
 - Understand carbon intensity of electricity generation and the implications for carbon aware use
   of HPC
@@ -19,7 +19,7 @@ an existing HPC facility to illustrate the concepts. By the end of this lesson y
 - Be aware of the frameworks used to measure and report on carbon emissions and how the terms used
   in these frameworks map onto HPC
 - Gain practical advice on how you can measure and improve the carbon efficiency of your use of
-  HPC.
+  HPC
 
 :::::::::::::::::::::::::::::::::::::: callout
 
