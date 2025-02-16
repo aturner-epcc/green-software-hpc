@@ -79,7 +79,7 @@ In short, Downstream Scope 3 emissions are not usually relevant for use of HPC s
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Measuring emissions associated with your use of HPC systems
+### Measuring emissions associated with your use of HPC systems
 
 <!-- TODO
 
@@ -126,7 +126,7 @@ The SCI is a method of scoring any software application, not limited to just clo
 
 The equation to calculate an SCI score is elegantly simple. This simplicity means it can be applied in a number of different scenarios.
 
-![alt_text](./fig/23_SCI.png "image_tooltip")
+![Software Carbon Intensity (SCI) equation](./fig/23_SCI.png "image_tooltip")
 
 `SCI = ((E *I) + M) per R`
 
