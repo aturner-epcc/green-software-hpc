@@ -1,7 +1,7 @@
 ---
 title: Measurement
-teaching: 20
-exercises: 5
+teaching: 30
+exercises: 0
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives

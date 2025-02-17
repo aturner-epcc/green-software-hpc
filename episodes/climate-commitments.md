@@ -26,35 +26,35 @@ The terms "net zero", "carbon neutral", "carbon negative" and "climate neutral" 
 
 There are many ways to reduce emissions but it's important to understand the exact mechanism of the reduction when thinking about reduction targets.
 
-![alt_text](./fig/24_carbon_reduction.png "image_tooltip")
+![Diagram illustrating carbon reduction strategies](./fig/24_carbon_reduction.png "Diagram illustrating carbon reduction strategies")
 
 ### Abatement / Carbon Elimination
 
-The [Science Based Targets Initiative](https://sciencebasedtargets.org/) refers to a mechanism called [abatement](https://sciencebasedtargets.org/resources/legacy/2020/09/foundations-for-net-zero-executive-summary.pdf), which means eliminating sources of CO2 emissions associated with a company's operations and [value chain](https://www.cisl.cam.ac.uk/education/graduate-study/pgcerts/value-chain-defs) so that they do not enter the atmosphere. The value chain describes the full range of activities needed to create a product or service, from conception to distribution. This includes increasing energy efficiency to eliminate some of the emissions associated with energy generation.
+The [Science Based Targets Initiative](https://sciencebasedtargets.org/) refers to a mechanism called [abatement](https://sciencebasedtargets.org/resources/legacy/2020/09/foundations-for-net-zero-executive-summary.pdf), which means eliminating sources of CO<sub>2</sub> emissions associated with an organisation's operations and [value chain](https://www.cisl.cam.ac.uk/education/graduate-study/pgcerts/value-chain-defs) so that they do not enter the atmosphere. The value chain describes the full range of activities needed to create a product or service, from conception to distribution. This includes increasing energy efficiency to eliminate some of the emissions associated with energy generation.
 
-Abatement is not enough on its own as there will always be some emissions that can't be eliminated due to technological or economic constraints, but it must form the core of every organization’s strategy as it is an area where almost every company can improve on.
+Abatement is not enough on its own as there will always be some emissions that can't be eliminated due to technological or economic constraints, but it must form the core of every organisation’s strategy as it is an area where almost every organisation can improve.
 
-To balance those residual emissions, we need to look at other mechanisms such as offsets, compensations or neutralizations.
+To balance those residual emissions, we need to look at other mechanisms such as offsets, compensations or neutralisations.
 
 ### Offsets
 
-[Offsets](https://www.offsetguide.org/understanding-carbon-offsets/what-is-a-carbon-offset/) are direct investments in emission-reduction projects through the purchase of carbon credits on the voluntary carbon market (VCM). The VCM is a decentralized market where private actors voluntarily buy and sell carbon credits that represent certified removals or reductions of GHGs from the atmosphere.
+[Offsets](https://www.offsetguide.org/understanding-carbon-offsets/what-is-a-carbon-offset/) are direct investments in emission-reduction projects through the purchase of carbon credits on the voluntary carbon market (VCM). The VCM is a decentralised market where private actors voluntarily buy and sell carbon credits that represent certified removals or reductions of GHGs from the atmosphere.
 
-To offset emissions, you need to purchase the equivalent volume of carbon credits to compensate for those emitted, where 1 carbon credit corresponds to 1 tonne of CO2 absorbed or reduced.
+To offset emissions, you need to purchase the equivalent volume of carbon credits to compensate for those emitted, where 1 carbon credit corresponds to 1 tonne of CO<sub>2</sub> absorbed or reduced.
 
 Various positive benefits can stem from these projects, from ecosystem protection to empowering local communities. However, to ensure these programs are implemented correctly and have the desired effect on the environment and the aim to reach world net zero, there are global standards that they must meet such as Verified Carbon Standard (VCS) and Gold Standard (GS).
 
 #### SCI and Offsets
 
-There are some limitations to carbon offsets and that is why they are not considered in an organization’s SCI score. For example, imagine two applications, both running on a cloud platform that is 100% carbon offset and matched 100% by renewable energy. Application A has invested significant time and resources into making sure it is using resources efficiently, whereas application B uses resources very inefficiently. For the SCI to be a helpful metric, application A needs to score better than application B.
+There are some limitations to carbon offsets and that is why they are not considered in an SCI score. For example, imagine two applications, both running on a HPC service that is 100% carbon offset and matched 100% by renewable energy. Application A has invested significant time and resources into making sure it is using resources efficiently, whereas application B uses resources very inefficiently. For the SCI to be a helpful metric, application A needs to score better than application B.
 
-If the SCI considered offsets, both applications would score 0. This wouldn’t tell us anything about how efficiently they are using resources. Although application B is emitting more carbon molecules into the atmosphere, since its score is 0 and the lowest score is 0, why would it make further investments into improving its carbon efficiency?
+If the SCI considered offsets, both applications would score 0. This wouldn’t tell us anything about how efficiently they are using resources. Although application B is emitting more carbon molecules into the atmosphere per unit of output, since its score is 0 and the lowest score is 0, why would it make further investments into improving its carbon efficiency?
 
-Organizations need to have plans for how to both eliminate as well as neutralize emissions and the SCI helps them to drive the elimination of emissions due to software. This makes the SCI an essential component of any net-zero strategy.
+HPC services and users need to have plans for how to both eliminate as well as neutralise emissions and the SCI helps them to drive the elimination of emissions due to software running on HPC services. This makes the SCI an useful component to help a research project or HPC service reach net zero.
 
 ### Compensating / Carbon Avoidance
 
-[Compensations](https://www.abatable.com/blog/carbon-removal-vs-carbon-avoidance-projects) are actions that companies take to help society avoid or reduce emissions outside of their value chain. This is essentially investing in other organizations' abatement projects.
+[Compensations](https://www.abatable.com/blog/carbon-removal-vs-carbon-avoidance-projects) are actions that organisations or individuals can take to help society avoid or reduce emissions. This is essentially investing in other organisations' abatement projects.
 
 This includes actions such as:
 
@@ -62,12 +62,12 @@ This includes actions such as:
 - **Community Projects** - These projects help communities worldwide, mainly undeveloped ones, by introducing sustainable living methods.
 - **Waste to energy** - These projects capture methane/landfill gas in smaller villages, human or agriculture waste, and convert it into electricity.
 
-### Neutralizing / Carbon Removal
+### Neutralising / Carbon Removal
 
-[Neutralizations](https://www.abatable.com/blog/carbon-removal-vs-carbon-avoidance-projects) are actions that companies take to remove carbon from the atmosphere within or beyond their value chain. Neutralizations refer to the removal and permanent storage of atmospheric carbon to counterbalance the effect of releasing CO2 into the atmosphere. This includes actions such as:
+[Neutralisations](https://www.abatable.com/blog/carbon-removal-vs-carbon-avoidance-projects) are actions that organisations or individuals take to remove carbon from the atmosphere. Neutralisations refer to the removal and permanent storage of atmospheric carbon to counterbalance the effect of releasing CO<sub>2</sub> into the atmosphere. This includes actions such as:
 
-- **Enhancing natural carbon sinks** that remove CO2 from the atmosphere. For example, forest restoration, since photosynthesis removes CO2 naturally. Forest expansion comes with challenges as it's essential not to impact the dynamics of farmland and food supply elsewhere. Modern farming methods can also prolong the time carbon remains stored in soil.
-- **Direct air capture** is the process of capturing CO2 from the air and storing it permanently, either underground or in long-lived products like concrete.
+- **Enhancing natural carbon sinks** that remove CO<sub>2</sub> from the atmosphere. For example, forest restoration, since photosynthesis removes CO<sub>2</sub> naturally. Forest expansion comes with challenges as it's essential not to impact the dynamics of farmland and food supply elsewhere. Modern farming methods can also prolong the time carbon remains stored in soil.
+- **Direct air capture** is the process of capturing CO<sub>2</sub> from the air and storing it permanently, either underground or in long-lived products like concrete.
 
 The effectiveness of these methods is typically measured based on whether they can deliver carbon removal at the scale and speed needed.
 
@@ -79,13 +79,13 @@ Short-term durability is up to 100 years, medium-term is 100 to 1,000 years, and
 - Engineered solutions such as direct air capture often have long-term durability measured in millennia. For example, direct air capture has a durability of 10,000 years.
 - Long-term projects are typically orders of magnitude more expensive than short-term projects. Once emitted, carbon remains in the atmosphere for 5,000 years. To be considered net zero, carbon that has been emitted needs to be permanently removed.
 
-A short-term carbon removal project will only remove carbon for 100 years, after which it's back in the atmosphere warming up our planet. This is one of the reasons why abatement is preferred to neutralization. Never releasing carbon is far better than releasing carbon and then trying to keep it out of the atmosphere for 5,000 years.
+A short-term carbon removal project will only remove carbon for 100 years, after which it's back in the atmosphere warming up our planet. This is one of the reasons why abatement is preferred to neutralisation. Never releasing carbon is far better than releasing carbon and then trying to keep it out of the atmosphere for 5,000 years.
 
 ## Climate commitments
 
-There are many different climate reduction strategies that an organization can commit to, from carbon neutral to net zero. Understanding the different meanings and implications of each one can help you decide on the right strategy for your organization.
+There are many different emissions reduction strategies that an organisation can commit to, from carbon neutral to net zero. Understanding the different meanings and implications of each one and finding out which are used by the facilities you use helps you understand how your use of HPC fits within wider climate goals.
 
-![alt_text](./fig/25_climate_commitments.png "image_tooltip")
+![Diagram illustrating different emissions reduction strategies](./fig/25_climate_commitments.png "Diagram illustrating different emissions reduction strategies")
 
 ### Carbon Neutral
 
@@ -121,8 +121,6 @@ When organizations set a target of 100% renewable power, they might distinguish 
 
 **Powered by** means you are directly powered by a renewable power source, say a hydro dam. In that scenario, the energy the device receives only originates from that source, so you can confidently say that you are 100% powered by renewables.
 
-![alt_text](./fig/26-27_100_renewable.png "image_tooltip")
-
 For most people, we live on an interconnected grid, with many producers pumping electricity in and many consumers taking electricity out. This means the electrons coming into your device are a mixture of all the electrons going into the grid. For example, suppose the grid only has 5% of wind supply. You are getting 5% of wind-generated electrons and 95% fossil fuel-generated electrons.
 
 You can't track individual electrons. Once the electrons from a wind farm are on a grid, they all mix with the electrons from a fossil fuel plant. So there is no way for a consumer to insist the electrons that it uses only come from renewable sources.
@@ -151,17 +149,15 @@ When it comes to 100% renewable claims, the critical question is, what is the gr
 
 #### Daily vs hourly matching
 
-![alt_text](./fig/28_daily_vs_hourly.png "image_tooltip")
-
 Imagine an organization has a demand curve like this, each blue square represents 1kWh:
 
-![alt_text](./fig/29_daily_consumption.png "image_tooltip")
+![Demand curve for electricity use](./fig/29_daily_consumption.png "Demand curve for electricity use")
 
 They have purchased RECs from a wind farm that generated electricity with a curve, so each green square represents 1 REC. Matching by day means the organization consumed 18 kWh and bought 18 RECs. As a result, they netted off to zero. So they can say they are **100% matched by renewable energy daily.**
 
 However, if we looked at it in hourly buckets (each square here is 2 hrs in length), then it seems a bit different:
 
-![alt_text](./fig/30_hourly_match.png "image_tooltip")
+![Diagram illustrating impact of hourly matching](./fig/30_hourly_match.png "Diagram illustrating impact of hourly matching")
 
 The total amount of energy consumed is still 18kWh. However, there are only a few hours in the day where we are 100% matched by renewable energy for that hour. So for some hours, we have way more renewable energy than we need. Conversely, we have way less renewable energy than we require for most hours.
 
@@ -181,7 +177,7 @@ Carbon aware computing involves responding to electrical carbon intensity signal
 
 One example of a behavior change is shifting compute to a time when more renewable energy is available. For example, delaying the start of a training run of a machine learning model, or even delaying charging of a laptop, to when the carbon intensity of electricity is lower, and the supply of renewable energy is higher.
 
-![alt_text](./fig/31_carbon_awareness.png "image_tooltip")
+![Temporal shifting along with matching strategy](./fig/31_carbon_awareness.png "Temporal shifting along with matching strategy")
 
 ::: tip
 Carbon aware computing helps organizations increase their CFE percentage.
