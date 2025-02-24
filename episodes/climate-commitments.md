@@ -89,35 +89,37 @@ There are many different emissions reduction strategies that an organisation can
 
 ### Carbon Neutral
 
-To achieve carbon neutrality, an organization must measure its emissions, then match the total to its emissions offsets through carbon reduction projects. This can include carbon removal projects (neutralizations) and carbon avoidance projects (compensations).
+To achieve carbon neutrality, an organisation must measure its emissions, then match the total to its emissions offsets through carbon reduction projects. This can include carbon removal projects (neutralisations) and carbon avoidance projects (compensations).
 
-Carbon neutrality is defined by an internationally recognized standard: [PAS 2060](https://info.eco-act.com/hubfs/0%20-%20Downloads/PAS%202060/PAS%202060%20factsheet%20EN.pdf). Although this does recommend an organization sets abatement targets, it doesn't demand they reduce their emissions. So to be considered carbon neutral, an organization can just measure and offset without investing resources in eliminating their carbon emissions.
+Carbon neutrality is defined by an internationally recognized standard: [PAS 2060](https://info.eco-act.com/hubfs/0%20-%20Downloads/PAS%202060/PAS%202060%20factsheet%20EN.pdf). Although this does recommend an organisation sets abatement targets, it doesn't demand they reduce their emissions. So to be considered carbon neutral, an organization can just measure and offset without investing resources in eliminating their carbon emissions.
 
 To be carbon neutral, you must cover direct emissions (scope 1 and 2). The general expectation is that organizations measure and offset their scopes 1 and 2, and business travel from scope 3. However, there is no specific requirement to include that.
 
-Carbon neutral is a significant first step for any organization since it encourages measurement. However, there are not enough carbon offsets in the world to offset the emissions of all the organizations. Therefore, any strategy that doesn't include abatement will not scale or help the world achieve the 1.5 degree target set by the Paris Climate Agreement. This is where net zero comes into play.
+Carbon neutral is a significant first step for any organisation since it encourages measurement. However, there are not enough carbon offsets in the world to offset the emissions of all the organisations. Therefore, any strategy that doesn't include abatement will not scale or help the world achieve the 1.5&deg;C target set by the Paris Climate Agreement. This is where net zero comes into play.
 
 ### Net Zero
 
-Net zero means reducing emissions according to the latest climate science and balancing remaining residual emissions through carbon removals (neutralizations). Net zero, by definition, requires emissions reductions in line with a 1.5°C pathway. All businesses must do this to achieve net-zero global emissions by 2050.
+Net zero means reducing emissions according to the latest climate science and balancing remaining residual emissions through carbon removals (neutralisations). Net zero, by definition, requires emissions reductions in line with a 1.5&deg;C pathway. All organisations must do this to achieve net-zero global emissions by 2050.
 
-The critical differentiator between net zero and carbon neutral is net zero's focus on abatement rather than neutralizations and compensations. A net-zero target aims to eliminate emissions and only to use offsetting for the residual emissions that you cannot eliminate
+The critical differentiator between net zero and carbon neutral is net zero's focus on abatement rather than neutralisations and compensations. A net-zero target aims to eliminate emissions and only to use offsetting for the residual emissions that you cannot eliminate
 
-The [standard for net zero](https://sciencebasedtargets.org/resources/files/foundations-for-net-zero-full-paper.pdf) is being developed by the [Science Based Targets initiative](https://sciencebasedtargets.org/) (SBTi). They calculate that there is a 66% probability of limiting global warming to 1.5°C if we reach a level of abatement of about 90% of all GHG emissions by mid-century. So, to meet a net-zero target, an organization needs to eliminate 90% of its emissions by 2050. The remaining emissions can only be offset using neutralizations and permanent carbon removals.
+The [standard for net zero](https://sciencebasedtargets.org/resources/files/foundations-for-net-zero-full-paper.pdf) is being developed by the [Science Based Targets initiative](https://sciencebasedtargets.org/) (SBTi). They calculate that there is a 66% probability of limiting global warming to 1.5&deg;C if we reach a level of abatement of about 90% of all GHG emissions by mid-century. So, to meet a net-zero target, an organisation needs to eliminate 90% of its emissions by 2050. The remaining emissions can only be offset using neutralisations and permanent carbon removals.
 
 A net-zero strategy would mean that the actual amount of carbon in the atmosphere remains constant.
 
-Also, to be a net-zero target, you must cover direct and indirect, i.e. supply chain emissions (scopes 1,2 and 3). Therefore, your entire value chain needs to be included in the scope of your net-zero target. This is significant since scope 3 often represents the majority of emissions.
+Also, to be a net-zero target, you must cover direct and indirect, i.e. supply chain emissions (scopes 1,2 and 3). This is significant since scope 3 often represents the majority of emissions.
+
+Fo HPC facilities, part of these strategies include educating and putting policies and approaches in place to support users to understand and take action to reduce their emissions and maximise the carbon efficiency of their HPC use.
 
 #### SCI as part of a Net-Zero strategy
 
-The SCI is a metric specifically designed to drive the elimination of emissions. The only way to reduce your score is to invest time and resources into actions that eliminate emissions. The only activities the SCI recognizes as elimination actions are making your application more energy-efficient, more hardware efficient, or consuming lower-carbon energy sources. Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the SCI metric.
+The SCI is a metric specifically designed to drive the elimination of emissions. The only way to reduce your score is to invest time and resources into actions that eliminate emissions. The only activities the SCI recognises as elimination actions are making your application (use of HPC, in the specific case of HPC systems) more energy-efficient, more hardware efficient, or consuming lower-carbon energy sources. Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the SCI metric.
 
-Any net-zero strategy needs to have plans for how to both eliminate as well as neutralize emissions. The SCI helps organizations drive the elimination of emissions due to software. This makes the SCI an essential component of any net-zero strategy.
+Any net-zero strategy needs to have plans for how to both eliminate as well as neutralise emissions. The SCI helps organisations and users drive the elimination of emissions due to software. This makes the SCI an useful component of any net-zero strategy for operation and use of HPC systems.
 
 ### 100% Renewable
 
-When organizations set a target of 100% renewable power, they might distinguish between being **matched by** vs. **powered by** renewables.
+When organisations set a target of 100% renewable power, they might distinguish between being **matched by** vs. **powered by** renewable energy sources.
 
 **Powered by** means you are directly powered by a renewable power source, say a hydro dam. In that scenario, the energy the device receives only originates from that source, so you can confidently say that you are 100% powered by renewables.
 
