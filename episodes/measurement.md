@@ -9,7 +9,7 @@ exercises: 0
 - Understand how emissions are classified in the widely-used GHG protocol
 - Know which GHG protocol classifications are relevant to use of HPC systems
 - Learn a methodology to use GHG protocol to estimate the emissions associated with our use of HPC systems
-- Understand how emission rates from software can be calculated using the SCI specification
+- Understand how emission rates from HPC can be calculated
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -57,21 +57,16 @@ Throughout this course we have spoken about emissions from two different sources
 ## Solution
 
 - Emissions from electricity used: these would be classified as Scope 2 emissions
-- Emboidied emissions from HPC system hardware: these would be classified as Upstream Scope 3 emissions
+- Embodied emissions from HPC system hardware: these would be classified as Upstream Scope 3 emissions
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When using HPC systems there are three parameters to consider for bucketing emissions:
-
-- How much electricity it consumes
-- How clean or dirty that electricity is
-- How much hardware it needs to function
 
 :::::::::::::::::::::::::::::::::::::::  callout
 
-## HPC elecricity: Scope 2 or Downstream Scope 3?
+## HPC electricity: Scope 2 or Downstream Scope 3?
 
 Whether the emissions from electricity use on HPC systems are Downstream Scope 3 or Scope 2 really depends on who is computing the emissions and for what purpose. From the viewpoint of the hardware vendor who sells and manufactures the HPC system, the electricity use falls into Downstream Scope 3 emissions but for operators and users of the HPC system they would classified as Scope 2 emissions. As we are approaching this subject as users of HPC systems we will always classify the emissions from our electricity use on HPC systems as Scope 2.
 
@@ -79,7 +74,8 @@ In short, Downstream Scope 3 emissions are not usually relevant for use of HPC s
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Measuring emissions associated with your use of HPC systems
+
+## HPC Carbon Intensity (HPC-CI) specification
 
 <!-- TODO
 
@@ -90,101 +86,65 @@ Points to add:
 
 -->
 
-#### Scope 2 emissions
+We now describe a methodology (the HPC Carbon Intensity specification, HPC-CI) to calculate your emissions from HPC use and to encourage action towards eliminating emissions.
+
+It is not a replacement for the GHG protocol, but an additional metric that helps HPC users understand how their HPC use can be measured in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the HPC-CI is about calculating the **rate of emissions**. In automotive terms, HPC-CI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
+
+Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use) and **embodied emissions** (carbon emissions from the physical HPC resources).
+
+An important thing to note is that it is not possible to reduce your HPC-CI rate by purchasing offsets in the form of neutralisations, compensations, or by offsetting electricity in the form of renewable energy credits. This means that HPC services or use that makes no efforts toward reducing its emissions but spends money on carbon credits cannot reduce their HPC-CI rate.
+
+Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the HPC-CI metric.
+
+If you make your HPC use more **energy efficient, hardware efficient**, or **carbon aware**, your HPC-CI rate will decrease. The only way to reduce your rate is to invest time or resources into one of those three principles. As such, adopting the HPC-CI metric for your HPC use, will drive investment into one of the three pillars of green HPC use.
+
+### The HPC-CI equation
+
+The equation to calculate an HPC-CI rate is simple.
+
+```
+HPC-CI = [(E * I)] + [M per R]
+```
+
+`E` = Energy consumed by HPC use (in kWh)
+`I` = Location-based marginal carbon intensity (in kgCO2/kWh)
+`R` = Resource measure (e.g. nodeh, coreh, GPUh)
+`M per R` = Embodied emissions rate per resource measure (e.g. in kgCO2e/nodeh)
+
+This yields an emissions rate in carbon emissions per resource measure (`C per R`), e.g. kgCO2e/nodeh.
+
+## How to calculate your HPC-CI score
+
+Follow these steps to calculate your HPC-CI score. You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
+
+1. Gather your energy use - this can be measured or estimated and is often a combination of measured and estimated data
+2. Determine the carbon intensity at the location of the HPC system you are using
+3. Determine the embodied emissions rate for the HPC system you are using - this may be provided by the HPC service or can be estimated
+4. Calculate your HPC-CI rate
+
+### 1. Gather energy use
 
 <!-- TODO: how do you estimate Scope 2 emissions from your use of HPC (remember to add overheads!) -->
 
-#### Scope 3 emissions
+### 2. Determine local carbon intensity
+
+### 3. Determine embodied emissions rate
 
 <!-- Emphasise this is Upstream Scope 3-->
 
 <!-- TODO: how do you estimate Scope 3 emissions from your use of HPC -->
 
-### Estimating emissions associated with future use of HPC systems
+### 4. Calculate HPC-CI rate
+
+## Estimating emissions associated with future use of HPC systems
 
 <!-- TODO: Could be based on measurements you have made or some sort of more general model -->
-
-## Software Carbon Intensity specification
-
-<!-- TODO: Note that this section is more useful to RSEs and software developers - we should include it to show the similarity of the methodology for compute user emissions from HPC, which are based on rates -->
-
-The [Software Carbon Intensity (SCI) specification](https://grnsft.org/sci) is a methodology developed by the Standards Working Group in the Green Software Foundation, designed to score a software application along a dimension of sustainability and to encourage action towards eliminating emissions.
-
-It's not a replacement for the GHG protocol, but an additional metric that helps software teams understand how their software behaves in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the SCI is about calculating the **rate of emissions**. In automotive terms, the SCI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
-
-Instead of bucketing the carbon emissions of software into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the running of software) and **embodied emissions** (carbon emissions from the physical resources required to run the software). It's also an intensity rather than a total, which is more inclusive of open-source software.
-
-An important thing to note is that it is not possible to reduce your SCI score by purchasing offsets in the form of neutralizations, compensations, or by offsetting electricity in the form of renewable energy credits. This means that an organization that makes no efforts towards reducing their emissions but simply spends money on carbon credits cannot achieve a good SCI score.
-
-Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the SCI metric.
-
-If you make your application more **energy efficient, hardware efficient**, or **carbon aware**, your SCI score will decrease. The only way to reduce your SCI score is to invest time or resources into one of those three principles. As such, adopting the SCI as a metric for your software application along with the GHG protocol, will drive investment into one of the three pillars of green software.
-
-### The SCI equation
-
-The SCI is a method of scoring any software application, not limited to just cloud or not just end-user applications, but all types of applications in between. It provides a common language to describe how software behaves with respect to carbon emissions and how a proposed change might eliminate some of them.
-
-The equation to calculate an SCI score is elegantly simple. This simplicity means it can be applied in a number of different scenarios.
-
-![Software Carbon Intensity (SCI) equation](./fig/23_SCI.png "image_tooltip")
-
-`SCI = ((E *I) + M) per R`
-
-`E` = Energy consumed by a software system
-`I` = Location-based marginal carbon emissions*
-`M` = Embodied emissions of a software system.*
-`R` = Functional unit (e.g. carbon per additional user, API-call, ML job, etc)
-
-This summarizes to:
-
-`SCI = C per R` (Carbon per `R`)
-
-`R` is the core characteristic of the SCI and turns it into an intensity rather than a total. This is what we call a _functional unit_.
-
-## How to calculate your SCI score
-
-Follow these four steps to calculate your SCI score.
-
-1. Decide what to include
-
-What software components to include or exclude in the SCI score means defining the boundaries of your software; where it starts and where it ends.
-
-For every software component you include, you will need to measure its impact. For every major component you exclude, you need to explain why.
-
-The SCI specification doesn't currently make any demands regarding what to include and what not to include. However, you must include all supporting infrastructure and systems that significantly contribute to the software operation.
-
-Your SCI score might decrease because you tightened your software boundary and excluded more software components. Conversely, your SCI score might increase because you are including software components you previously excluded. Therefore, when you report your SCI score, especially any improvements in the score, it's essential to disclose your software boundary.
-
-2. Choose your functional unit
-
-As we have seen, the SCI is a rate rather than a total and measures the intensity of emissions according to the chosen functional unit. The specification currently doesn't prescribe the functional unit and you are free to pick whichever best describes how your application scales. For example, if your application scales by the number of users, then pick users as your functional unit.
-
-Future iterations of the SCI might prescribe specific functional units for different types of applications to aid with comparability. For instance, we might ask streaming applications to choose minutes as their functional unit in order to standardize measurement across all streaming applications.
-
-3. Decide how to measure your emissions
-
-Now you have a list of the software components you want to measure and the functional unit you will use to measure them. The next step is to decide how you will quantify the emissions of each software component.
-
-There are two methods of quantification; measurement and calculation.
-
-- **Measurement** is using counters of some form. For example, measuring the energy consumption of your software component by using a hardware device in the wall socket. Or using counters on hardware that directly measure energy consumption. If you can directly count your units, you should use the measurement approach.
-- **Calculation** involves indirect counting, often using a model of some form. For instance, if you cannot directly measure your application's energy consumption but instead have a model that estimates the energy consumption based on the CPU utilization, this is considered calculation rather than measurement.
-
-These resources can help you to decide on measurement and calculation methods:
-
-- Look at the [Software Carbon Intensity Guide](https://sci-guide.greensoftware.foundation/) project. This project is responsible for providing advice on how to quantify different software components' emissions.
-
-4. Quantify
-
-Now you are ready to execute. Using the methodology described in the previous steps, start to quantify the SCI score for each software component in your boundary. Your total SCI score of your software application is the combined score of all the different components.
-
-You may calculate multiple SCI scores for the same application. The SCI score is helpful information to understand how your application behaves with respect to carbon emissions in different scenarios. For example, a streaming application might choose carbon per minute as a metric. It might also calculate the carbon per user per day. The carbon per $ revenue metric might give another helpful dimension.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - The GHG protocol is a metric for measuring an organisation's total carbon emissions and is used by organisations all over the world.
 - The GHG protocol puts carbon emissions into three scopes. Scope 3, also known as value chain emissions, refers to the emissions from organisations that supply others in a chain. In this way, one organisation's scope 1 and 2 will sum up into another organization's scope 3.
 - You can use the GHG protocol to estimate your emissions from HPC system use but it requires access to good quality information from the HPC systems you are using.
-- The SCI is a metric designed specifically to calculate software emissions and is a rate rather than a total and can be useful for RSEs or researchers who develop software to help them estimate emissions from the software they produce.
+- The HPC-CI is a metric designed specifically to calculate HPC emissions and is a rate rather than a total and can be used to measure improvements in emissions efficiency and drive reductions in emissions.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
