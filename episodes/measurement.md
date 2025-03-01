@@ -75,7 +75,7 @@ In short, Downstream Scope 3 emissions are not usually relevant for use of HPC s
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## HPC Carbon Intensity (HPC-CI) specification
+## How to calculate your HPC emissions
 
 <!-- TODO
 
@@ -86,41 +86,26 @@ Points to add:
 
 -->
 
-We now describe a methodology (the HPC Carbon Intensity specification, HPC-CI) to calculate your emissions from HPC use and to encourage action towards eliminating emissions.
-
-It is not a replacement for the GHG protocol, but an additional metric that helps HPC users understand how their HPC use can be measured in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the HPC-CI is about calculating the **rate of emissions**. In automotive terms, HPC-CI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
-
-Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use) and **embodied emissions** (carbon emissions from the physical HPC resources).
-
-An important thing to note is that it is not possible to reduce your HPC-CI rate by purchasing offsets in the form of neutralisations, compensations, or by offsetting electricity in the form of renewable energy credits. This means that HPC services or use that makes no efforts toward reducing its emissions but spends money on carbon credits cannot reduce their HPC-CI rate.
-
-Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the HPC-CI metric.
-
-If you make your HPC use more **energy efficient, hardware efficient**, or **carbon aware**, your HPC-CI rate will decrease. The only way to reduce your rate is to invest time or resources into one of those three principles. As such, adopting the HPC-CI metric for your HPC use, will drive investment into one of the three pillars of green HPC use.
-
-### The HPC-CI equation
-
-The equation to calculate an HPC-CI rate is simple.
+Quantifying your emissions (and generating an emissions rate for your work as described below) are critical steps on the path to reducing and potentially eliminating emissions from your use of HPC systems. The formula for calculating your emissions from use of HPC systems (`HPC-E`) is straightforward:
 
 ```
-HPC-CI = [(E * I)] + [M per R]
+HPC-E = (E * I) + M
 ```
 
-`E` = Energy consumed by HPC use (in kWh)
-`I` = Location-based marginal carbon intensity (in kgCO2/kWh)
-`R` = Resource measure (e.g. nodeh, coreh, GPUh)
-`M per R` = Embodied emissions rate per resource measure (e.g. in kgCO2e/nodeh)
+- `E` = Energy consumed by HPC use (in kWh)
+- `I` = Location-based marginal carbon intensity (in kgCO2/kWh)
+- `M` = Embodied emissions 
 
-This yields an emissions rate in carbon emissions per resource measure (`C per R`), e.g. kgCO2e/nodeh.
+You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
 
-## How to calculate your HPC-CI score
+Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use, represented by `E * I`) and **embodied emissions** (carbon emissions from the physical HPC resources, represented by `M`).
 
-Follow these steps to calculate your HPC-CI score. You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
+Follow these steps to calculate your HPC emissions. 
 
 1. Gather your energy use - this can be measured or estimated and is often a combination of measured and estimated data
 2. Determine the carbon intensity at the location of the HPC system you are using
-3. Determine the embodied emissions rate for the HPC system you are using - this may be provided by the HPC service or can be estimated
-4. Calculate your HPC-CI rate
+3. Determine the embodied emissions associated with your use of HPC
+4. Compute your total HPC emissions
 
 ### 1. Gather energy use
 
@@ -128,23 +113,80 @@ Follow these steps to calculate your HPC-CI score. You can calculate this on a p
 
 ### 2. Determine local carbon intensity
 
-### 3. Determine embodied emissions rate
+### 3. Determine embodied emissions
 
 <!-- Emphasise this is Upstream Scope 3-->
 
-<!-- TODO: how do you estimate Scope 3 emissions from your use of HPC -->
+<!-- TODO: how do you estimate Scope 3 emissions from your use of HPC.  -->
 
-### 4. Calculate HPC-CI rate
+### 4. Compute your total HPC emissions
+
+## HPC Carbon Intensity (HPC-CI) specification
+
+We now describe a methodology (the HPC Carbon Intensity specification, HPC-CI) to calculate your emissions from HPC system use and to encourage action towards eliminating emissions.
+
+It is not a replacement for the GHG protocol, but an additional metric that helps you understand how your HPC system use can be measured in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the HPC-CI is about calculating the **rate of emissions**. In automotive terms, HPC-CI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
+
+An important thing to note is that it is not possible to reduce your HPC-CI rate by purchasing offsets in the form of neutralisations, compensations, or by offsetting electricity in the form of renewable energy credits (we will cover this in more detail in the next section of the workshop). This means that HPC services or use that makes no effort toward reducing its emissions but spends money on carbon credits cannot reduce their HPC-CI rate.
+
+Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the HPC-CI metric.
+
+If you make your HPC use more **energy efficient, hardware efficient**, or **carbon aware**, your HPC-CI rate will decrease. The only way to reduce your rate is to invest time or resources into one of those three principles. As such, adopting the HPC-CI metric for your HPC use, will drive investment into one of the three pillars of green HPC use.
+
+## The HPC-CI equation
+
+The equation to calculate an HPC-CI rate is simple and very closely related to the calculation of total emissions presented above:
+
+```
+HPC-CI = [(E * I) + M] per R
+```
+
+- `E` = Energy consumed by HPC use (in kWh)
+- `I` = Location-based marginal carbon intensity (in kgCO2/kWh)
+- `M` = Embodied emissions 
+- `R` = Functional unit (e.g. iterations, simulated time, calculation cycles, research papers published, cost)
+
+This yields an emissions rate in carbon emissions per functional unit (`HPC-E per R`), e.g. kgCO2e/iteration.
+
+The steps to calculate your HPC-CI score are the similar as calculating your emissions described above with additional steps to produce the rate. Steps 1-4 are identical the methodology described above:
+
+1. Gather your energy use
+2. Determine the carbon intensity at the location of the HPC system you are using
+3. Determine the embodied emissions associated with your use of HPC
+4. Compute your total HPC emissions
+5. Select your functional unit (`R`)
+6. Calculate your HPC-CI rate
+
+### 5. Select your functional unit (`R`)
+
+<!-- TODO: give concrete example for a specific application -->
+
+### 6. Calculate HPC-CI rate
+
+<!-- TODO: simples! total emissions divided by number of functional units. Note: this can be quite different depending on different hardware, e.g. your output could be very different on a GPU system - can we have an example to show this, maybe an exercise with CPU v GPU for MD or something similar -->
 
 ## Estimating emissions associated with future use of HPC systems
 
-<!-- TODO: Could be based on measurements you have made or some sort of more general model -->
+<!-- TODO: You can use the HPC-CI rate you calculated... -->
+
+## How can the HPC-CI rate be reduced?
+
+- Depends a bit on whether the operational emissions or embodied emissions dominate
+
+- Operational emissions dominate:
+  - Improve the energy efficiency of your use (e.g. power caps, different algorithms)
+  - Temporal shifting - run when carbon intensity is lower
+  - Spatial shifting - run on system where carbon intensity is lower, run on hardware which has better energy efficiency for your use case (e.g. GPU may be more energy efficient for your use)
+- Embodied emissions dominate:
+  - Make your use more performant - more output per unit of time (even at the expense of energy efficiency)
+  - Extend the lifetime of the HPC system (reduced emissions due to longer amortisation)
+  - Spatial shifting - run on system which has lower embodied emissions rate for your use
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - The GHG protocol is a metric for measuring an organisation's total carbon emissions and is used by organisations all over the world.
 - The GHG protocol puts carbon emissions into three scopes. Scope 3, also known as value chain emissions, refers to the emissions from organisations that supply others in a chain. In this way, one organisation's scope 1 and 2 will sum up into another organization's scope 3.
 - You can use the GHG protocol to estimate your emissions from HPC system use but it requires access to good quality information from the HPC systems you are using.
-- The HPC-CI is a metric designed specifically to calculate HPC emissions and is a rate rather than a total and can be used to measure improvements in emissions efficiency and drive reductions in emissions.
+- The HPC-CI is a metric designed specifically to calculate emissions from HPC systems and is a rate rather than a total. This can be used to measure improvements in emissions efficiency and drive reductions in emissions.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
