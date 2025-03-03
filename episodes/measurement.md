@@ -86,7 +86,7 @@ Points to add:
 
 -->
 
-Quantifying your emissions (and generating an emissions rate for your work as described below) are critical steps on the path to reducing and potentially eliminating emissions from your use of HPC systems. The formula for calculating your emissions from use of HPC systems (`HPC-E`) is straightforward:
+Quantifying the emissions from your work (and generating an emissions rate, as described below) are critical steps on the path to reducing and potentially eliminating emissions from your use of HPC systems. The formula for calculating your emissions from use of HPC systems (`HPC-E`) is straightforward:
 
 ```
 HPC-E = (E * I) + M
@@ -98,7 +98,7 @@ HPC-E = (E * I) + M
 
 You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
 
-Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use, represented by `E * I`) and **embodied emissions** (carbon emissions from the physical HPC resources, represented by `M`).
+Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use, represented by `E * I`) and **embodied emissions** (carbon emissions from the physical HPC system components, represented by `M`).
 
 Follow these steps to calculate your HPC emissions. 
 
@@ -109,9 +109,78 @@ Follow these steps to calculate your HPC emissions.
 
 ### 1. Gather energy use
 
-<!-- TODO: how do you estimate Scope 2 emissions from your use of HPC (remember to add overheads!) -->
+Many HPC systems now provide energy use data for jobs run on the system. If this is the case, you can use these as the starting point for calculating your energy use of HPC resources. If this is not available, then you may need to estimate the energy use of your use of resources from component power draw. Even if you have energy use data available this may only cover energy use of compute nodes (or even processors on compute nodes) so you do typically have to do some estimation of power draw of other components to know how much extra energy to add on to include them in your calculation.
+
+If you are really lucky, the HPC system staff will have done this calculation for you. As has been done for the UK National Supercomputing Service, ARCHER2: [Estimating emissions from ARCHER2](https://docs.archer2.ac.uk/user-guide/energy/#scope-2-emissions)
+
+We will cover two different ways to estimate the power draw of HPC systems which can then be used to compute energy use.
+
+a. Use the total power draw of the system
+b. Use the per-component power draw of the system
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## Heterogeneous systems
+
+The methodologies outlined below all assume the compute nodes are heterogeneous. What do you do if this is not the case and some nodes on the system have GPU and others do not, for example? In this case, you should try, as much as possible, to treat each homogeneous partition as its own smaller HPC system to help calculate energy use.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+#### a. Using total power draw
+
+One of the simplest ways to estimate your energy use is to use the total power draw of the HPC system and divide it by the number of components to get a mean power draw per component that can be used to estimate energy use. For example, if the total power draw of the system is 250 kW and it contains 512 GPU, then the mean power draw per GPU is `250 kW / 512 GPU = 0.488 kW/GPU`. This, in turn, means the energy used for 12 hours use of 2 GPU is `12 hours * 2 GPU * 0.488 kW/GPU = 11.7 kWh`.
+
+You should use the component that you measure resource use in to compute the mean power draw. For example. if your usage is measured in GPUh, then compute the power draw per GPU; if your usage is measured in nodeh, compute the power draw per node.
+
+#### b. Using per-component power draws
+
+This approach requires more detailed information being available on the power draw of different components though measurement or from information from the vendors of the components. If you are getting your energy use from counters on the compute nodes (as is sometimes possible on HPC systems) then this approach allows you to estimate additional energy overheads that need to be added on in addition to the measured power draw.
+
+We illustrate this approach using the estimates for the ARCHER2 HPC system:
+
+| Component | Count | Loaded power draw per unit (kW)| Loaded power draw (kW) | % Total | Notes |
+|---|--:|--:|--:|--:|---|
+| Compute nodes | 5,860 nodes | 0.41 | 2,400 | 85% | Measured by on system counters |
+| Interconnect switches | 768 switches | 0.24 | 240 | 9% | Measured by on system counters |
+| Lustre storage | 5 file systems | 8 | 40 | 1% | Estimate from vendor |
+| NFS storage | 4 file systems | 8 | 32 | 1% | Estimate from vendor |
+| Coolant distribution units | 6 CDU | 16 | 96 | 3% | Estimate from vendor |
+| Total | | | 2,808 | 99% | |
+
+In this case, we have a mix of data measured on the system (power draw of the compute nodes and power draw of the interconnect switches) and estimates from the vendor (storage systems and CDU). Here, the total power draw is estimated at 2,808 kW, there are 5,860 compute nodes and the unit of resource is nodeh so we can calculate the mean per node power draw (including all the components in the table) in the same way as we did for method (a) with `2,808 kW / 5,860 nodes = 0.480 kW/node` and use this to compute energy consumption based on how many nodeh we use.
+
+However, on ARCHER2 we also have the total compute node energy use available per job to users from the Slurm scheduler. The table above shows that the compute nodes contribute around 85% of the total power draw of ARCHER2 (of the components included) so an alternative method to compute the energy use is to use the measurement from the scheduler and add an additional 15% to cover the energy used by other components. This is, in fact, the methodology used for computing per job energy use on ARCHER2.
+
+#### Add in energy from plant overheads
+
+As well as the energy used by the system itself, there is also the energy used by the plant that supplies power and cooling to the HPC system. Different data centres have different sizes of overheads and this is given by PUE (Power Use Efficiency). For example, a PUE of 1.25 indicates that an additional 25% energy use is added on top of the system energy use to account for the plant. 
+
+The PUE will vary with outside weather conditions at the data centre. For the ARCHER2 example, PUE is typically less than 10% so, s a conservative estimate, they add an additional 10% energy use to the total to account for plant overheads. 
 
 ### 2. Determine local carbon intensity
+
+Once you have your energy use then you need to convert this to emissions using the carbon intensity for the electricity supply for the HPC system. In most cases, HPC systems are powered by the energy grid and many energy grids provide details on the carbon intensity as a function of time.
+
+For the UK, the carbon intensity is dependent on location and time. You can access the values through different web services but one that is commonly used is the [Carbon Intensity API](https://carbonintensity.org.uk). Carbon intensity is reported for every region every 30 minute interval. To estimate your emissions you can either use the fine grained intensity matched to the run times of your HPC system use or use an aggregate value over a longer period. The aggregate value is a simpler choice for a first estimate. The table below shows the mean carbon intensities for the different regions of the UK national grid for 2024 ordered from lowest to highest.
+
+| Region | Mean 2024 CI (gCOe/kWh) |
+|---|--:|
+| NE England | 22 |
+| S Scotland| 26 |
+| N Scotland | 30 |
+| NW England | 48 |
+| N Wales | 77 |
+| E England | 108 |
+| London | 125 |
+| W Midlands | 125 |
+| SE England | 135 |
+| Yorkshire | 135 |
+| S England | 186 |
+| E Midlands | 203 |
+| SW England | 242 |
+| S Wales | 255 |
+
+For the UK, where you place your HPC system can have a tenfold impact on emissions from energy use.
 
 ### 3. Determine embodied emissions
 
