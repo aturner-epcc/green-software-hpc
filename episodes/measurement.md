@@ -182,6 +182,8 @@ For the UK, the carbon intensity is dependent on location and time. You can acce
 
 For the UK, where you place your HPC system can have a tenfold impact on emissions from energy use.
 
+<!-- TODO: Add exercise on computing operational emissions -->
+
 ### 3. Determine embodied emissions
 
 <!-- Emphasise this is Upstream Scope 3-->
