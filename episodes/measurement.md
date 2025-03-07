@@ -93,7 +93,7 @@ HPC-E = (E * I) + M
 ```
 
 - `E` = Energy consumed by HPC use (in kWh)
-- `I` = Location-based marginal carbon intensity (in kgCO2/kWh)
+- `I` = Location-based marginal carbon intensity (in kgCO<sub>2</sub>/kWh)
 - `M` = Embodied emissions 
 
 You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
@@ -157,6 +157,12 @@ As well as the energy used by the system itself, there is also the energy used b
 
 The PUE will vary with outside weather conditions at the data centre. For the ARCHER2 example, PUE is typically less than 10% so, s a conservative estimate, they add an additional 10% energy use to the total to account for plant overheads. 
 
+So, for the ARCHER2 example, the process for computing your total energy use becomes:
+
+- Measure total energy use from all jobs run
+- Add 15% extra energy to cover energy use from other components
+- Add another 10% energy use top of this new total to cover plant overheads
+
 ### 2. Determine local carbon intensity
 
 Once you have your energy use then you need to convert this to emissions using the carbon intensity for the electricity supply for the HPC system. In most cases, HPC systems are powered by the energy grid and many energy grids provide details on the carbon intensity as a function of time.
@@ -186,11 +192,95 @@ For the UK, where you place your HPC system can have a tenfold impact on emissio
 
 ### 3. Determine embodied emissions
 
-<!-- Emphasise this is Upstream Scope 3-->
+:::::::::::::::::::::::::::::::::::::::: callout
 
-<!-- TODO: how do you estimate Scope 3 emissions from your use of HPC.  -->
+## Upstream Scope 3 emissions
+
+Remember that we are considering only *upstream* Scope3 emissions here. The emissions from electricity
+use are captured in the Scope 2 emissions estimates.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Calculating the embodied emissions can be more difficult than the operational emissions from energy 
+consumption as it can be more difficult to get information on embodied emissions from hardware. You
+may, of course, be lucky and the HPC system you are using could already provide estimates of the 
+embodied emissions which you can use.
+
+If you need to estimate this yourself, the major contributors to embodied emissions are likely to be:
+
+- Compute nodes
+- Interconnect switches
+- Storage
+
+so these are the best place to start. Bear in mind that each HPC system is different so other components
+may need to be taken into account. As a rule of thumb, you should look at the HPC system to see which
+components there are lots of and use that as the starting place. Complex components (such as nodes, storage
+and switches) are likely to have much higher embodied emissions than simpler components (pumps, fans, cables etc.).
+
+As an example, here is how we have estimated embodied emissions for ARCHER2:
+
+| Component | Count | Estimated kgCO<sub>2</sub>e per unit | Estimated kgCO<sub>2</sub>e | % Total Scope 3 | References |
+|---|--:|--:|--:|--:|---|
+| Compute nodes | 5,860 nodes | 1,100 | 6,400,000 | 84% | (1) |
+| Interconnect switches | 768 switches | 280 | 150,000 | 2% | (2) |
+| Lustre HDD | 19,759,200 GB | 0.02 | 400,000 | 6% | (3) |
+| Lustre SSD | 1,900,800 GB | 0.16 | 300,000 | 4% | (3) |
+| NFS HDD | 3,240,000 GB | 0.02 | 70,000 | 1% | (3) |
+| Total | | | 7,320,000 | 100% | |
+
+References:
+
+1. [IRISCAST Final Report](https://doi.org/10.5281/zenodo.7692451)
+2. Estimate taken from IBM z16™ multi frame 24-port Ethernet Switch Product Carbon Footprint
+3. [Tannu and Nair, 2023](https://arxiv.org/abs/2207.10793)
+
+Note that there is a large amount of uncertainty for Scope 3 emissions due to lack of high quality embodied
+emissions data. The number used for the compute node emissions is at the high end of estimated values for a
+CPU-only compute node and the actual value could be as much as 15% lower at around 900 kgCO<sub>2</sub>e/node.
+If the lower value is used, it reduces the overall estimated embodied emissions but does not significantly
+change the fraction of emissions attributed to the compute nodes.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## Other embodied emissions sources
+
+We have not included embodied emissions associated with the data centre buildings and plant in the analysis above.
+[The IRISCAST report](https://doi.org/10.5281/zenodo.7692450) mentioned above provides an evaluation of these values. While the total
+embodied emissions can be high for these items, their long lifespan means that their contribution to the 
+embodied emissions during the lifespan of a particular HPC system are generally much less significant than
+the embodied emissions from the HPC system hardware itself.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+<!-- TODO: Add exercise on computing embodied emissions for a different (GPU-based) system -->
 
 ### 4. Compute your total HPC emissions
+
+Now we should have all the data we need to compute our total emissions from HPC system use:
+
+- `E` - Total energy used
+- `I` - Carbon intensity
+- `M` - Embodied emissions estimate
+
+Remember the equation for computing total emissions from HPC system use (`HPC-E`):
+
+```
+HPC-E = (E * I) + M
+```
+
+we can plug the numbers in and come up with a value for the total emissions arising from our
+use of HPC.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## `E * I` on a per job basis
+
+Rather than computing total energy use and then using an aggregate value for the carbon intensity, it may
+make more sense to compute `E * I` on a per-job basis using the carbon intensity value at the job time.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+<!-- TODO: Add exercise to compute total emissions from HPC system use -->
 
 ## HPC Carbon Intensity (HPC-CI) specification
 
