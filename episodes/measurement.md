@@ -288,7 +288,7 @@ We now describe a methodology (the HPC Carbon Intensity specification, HPC-CI) t
 
 It is not a replacement for the GHG protocol, but an additional metric that helps you understand how your HPC system use can be measured in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the HPC-CI is about calculating the **rate of emissions**. In automotive terms, HPC-CI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
 
-An important thing to note is that it is not possible to reduce your HPC-CI rate by purchasing offsets in the form of neutralisations, compensations, or by offsetting electricity in the form of renewable energy credits (we will cover this in more detail in the next section of the workshop). This means that HPC services or use that makes no effort toward reducing its emissions but spends money on carbon credits cannot reduce their HPC-CI rate.
+An important thing to note is that it is not possible to reduce your HPC-CI rate by purchasing offsets in the form of neutralisations, compensations, or by offsetting electricity in the form of renewable energy credits (we will cover this in more detail in the next section of the workshop). This means that HPC system use that makes no effort toward reducing emissions but spends money on carbon credits cannot reduce the associated HPC-CI rate.
 
 Offsets are an essential component of any climate strategy; however, offsets are not eliminations and therefore are not included in the HPC-CI metric.
 
@@ -320,11 +320,35 @@ The steps to calculate your HPC-CI score are the similar as calculating your emi
 
 ### 5. Select your functional unit (`R`)
 
-<!-- TODO: give concrete example for a specific application -->
+As we have seen, the HPC-CI is a rate rather than a total and measures the intensity of emissions
+according to the chosen functional unit. The specification currently does not prescribe the
+functional unit and you are free to pick whichever best describes the output from your use of HPC
+systems. For example, this could be a metric from the software you use (ns simulated, number of
+years simulated, iterations) or a metric tied to research progress (number of compounds modelled,
+data points analysed). There may also be ideas in literature related to your research area of 
+what a good choice may be. You may want to trial different functional units to see which one works
+best for your work.
+
+As a concrete example, imagine that you are simulating the dynamics of a biomolecular system
+(using software such as GROMACS, Amber or NAMD) then you could well chose the number of ns 
+simulated as your functional unit.
 
 ### 6. Calculate HPC-CI rate
 
-<!-- TODO: simples! total emissions divided by number of functional units. Note: this can be quite different depending on different hardware, e.g. your output could be very different on a GPU system - can we have an example to show this, maybe an exercise with CPU v GPU for MD or something similar -->
+Now you have both the total emisssions for your use of HPC systems and the number of functional 
+units arising from the same use of HPC systems you can calculate the HPC-CI by dividing the 
+total emissions by the total number of functional units.
+
+To continue our example of biomolecular simulation that we mentioned above, we would take the
+total emissions from our HPC system use - let us say this came out to be 1500 kgCO<sub>2</sub>e -
+and the total number of functional units - say 950 ns simulated - and combine them:
+
+```
+HPC-CI  = 1500 kgCO2e / 950 ns = 1.58 kgCO2e/ns
+```
+
+<!-- TODO: Add exercise on calculating HPC-CI -->
+
 
 ## Estimating emissions associated with future use of HPC systems
 
