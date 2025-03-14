@@ -6,13 +6,18 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- TBC
+- Understand how different ways of generating electricity lead to different carbon emission rates.
+- Understand concepts important in improving energy efficiency of HPC system use.
+- Appreciate how the different bounds on HPC application performance impact energy efficiency.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- TBC
+- What is *Carbon Intensity*?
+- What are low carbon sources of electricity generation?
+- How do we quantify energy efficiency?
+- What aspects should we consider when looking at energy efficiency of HPC system use?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
