@@ -77,14 +77,6 @@ In short, Downstream Scope 3 emissions are not usually relevant for use of HPC s
 
 ## How to calculate your HPC emissions
 
-<!-- TODO
-
-Points to add:
-- Many HPC services now provide a way to extract your per-job energy use
-- To use this to estimate Scope 2 emissions, you also need the carbon intensity of electricity generation for the facility
-- A small but growing number may provide estimates of Upstream Scope 3 emissions which can be amortised across the service lifetime to estimate the per-job emissions
-
--->
 
 Quantifying the emissions from your work (and generating an emissions rate, as described below) are critical steps on the path to reducing and potentially eliminating emissions from your use of HPC systems. The formula for calculating your emissions from use of HPC systems (`HPC-E`) is straightforward:
 
@@ -97,6 +89,14 @@ HPC-E = (E * I) + M
 - `M` = Embodied emissions 
 
 You can calculate this on a per job basis or for a larger grouping of HPC use - even for a full lifetime of an HPC service.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## Include failed jobs and jobs that did not produce useful output
+
+While it can be tempting to only include the use of HPC that produced useful output in our emissions calculations this should be avoided. The true amount of emissions includes **all** of our HPC system use to get us to the results we use and so failed jobs (due to errors) or calculations that did not produce useful output must be included. On the positive side, one of the ways we can reduce our emissions from use of HPC systems is to be more careful and eliminate emissions arising from these types of jobs.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Instead of bucketing the carbon emissions of HPC use into scopes 1-3, it buckets them into **operational emissions** (carbon emissions from the electricity required for your HPC use, represented by `E * I`) and **embodied emissions** (carbon emissions from the physical HPC system components, represented by `M`).
 
