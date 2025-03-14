@@ -284,6 +284,16 @@ make more sense to compute `E * I` on a per-job basis using the carbon intensity
 
 ## HPC Carbon Intensity (HPC-CI) specification
 
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## Software Carbon Intensity (SCI)
+
+The definition, application and calculation of the HPC-CI is heavily inspired
+by the [Software Carbon Intensity (SCI)](https://sci.greensoftware.foundation/)
+from the Green Software Foundation.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 We now describe a methodology (the HPC Carbon Intensity specification, HPC-CI) to calculate your emissions from HPC system use and to encourage action towards eliminating emissions.
 
 It is not a replacement for the GHG protocol, but an additional metric that helps you understand how your HPC system use can be measured in terms of carbon emissions so they can make more informed decisions. While the GHG protocol calculates the **total emissions**, the HPC-CI is about calculating the **rate of emissions**. In automotive terms, HPC-CI is more like a miles per gallon measurement and the GHG protocol is more like the total carbon footprint of a car manufacturer and all their cars they produce every year.
@@ -333,6 +343,10 @@ As a concrete example, imagine that you are simulating the dynamics of a biomole
 (using software such as GROMACS, Amber or NAMD) then you could well chose the number of ns 
 simulated as your functional unit.
 
+You can use multiple functional units simultaneously to have multiple HPC-CI values for
+your use of HPC systems. Different HPC-CI units may be more or less useful in different
+contexts.
+
 ### 6. Calculate HPC-CI rate
 
 Now you have both the total emisssions for your use of HPC systems and the number of functional 
@@ -349,23 +363,22 @@ HPC-CI  = 1500 kgCO2e / 950 ns = 1.58 kgCO2e/ns
 
 <!-- TODO: Add exercise on calculating HPC-CI -->
 
+:::::::::::::::::::::::::::::::::::::::: callout
 
 ## Estimating emissions associated with future use of HPC systems
 
-<!-- TODO: You can use the HPC-CI rate you calculated... -->
+As well as using the HPC-CI metric as a tool to help quantify and reduce your emissions
+from HPC system use it can also be used to project the emissions from HPC system use
+from future or planned projects. Many funding bodies are starting to ask for emissions
+estimates as part of the submission process. Calculating HPC-CI values can help you 
+provide these estimates.
 
-## How can the HPC-CI rate be reduced?
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-- Depends a bit on whether the operational emissions or embodied emissions dominate
-
-- Operational emissions dominate:
-  - Improve the energy efficiency of your use (e.g. power caps, different algorithms)
-  - Temporal shifting - run when carbon intensity is lower
-  - Spatial shifting - run on system where carbon intensity is lower, run on hardware which has better energy efficiency for your use case (e.g. GPU may be more energy efficient for your use)
-- Embodied emissions dominate:
-  - Make your use more performant - more output per unit of time (even at the expense of energy efficiency)
-  - Extend the lifetime of the HPC system (reduced emissions due to longer amortisation)
-  - Spatial shifting - run on system which has lower embodied emissions rate for your use
+Now we understand how to estimate our emissions (HPC-E) and how to define a useful
+metric to understand our emissions rate linked to some concrete output from our use
+of HPC systems (HPC-CI). The next section looks at how emissions can be reduced and,
+ideally, eliminated.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
