@@ -71,9 +71,29 @@ We will always emit carbon through our activities, but being carbon efficient me
 
 ![Picture of user minimising carbon emissions](./fig/02_monitoring_climate_change.png "image_tooltip")
 
-In the HPC space, the part we play in the climate solution is **using HPC in a carbon efficient way**. Being carbon efficient is about making sure your use of HPC emits the least carbon possible for the work we are doing. Or, for providers of HPC systems, it means procuring and operating the system in such a way as to minimise the carbon emissions. Ideally, you would also be able to quantify the **positive** carbon impacts from the work (or HPC system itself) to understand the overall net impact on carbon emissions - though doing this is typically quite challenging.
+## Carbon efficiency in HPC system use
 
-## Positive emissions impacts
+In the HPC space, the part we play in the climate solution is **using HPC systems in a carbon efficient way**. Being carbon efficient is about making sure your use of HPC emits the least carbon possible for the work we are doing. Or, for providers of HPC systems, it means procuring and operating the system in such a way as to minimise the carbon emissions. Ideally, you would also be able to quantify the **positive** carbon impacts from the work (or HPC system itself) to understand the overall net impact on carbon emissions - though doing this is typically quite challenging.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Carbon emissions from HPC systems
+
+What do you think the sources of carbon emissions may be from HPC system use? Write down 2-3 ideas of where you think emissions may come from.
+
+:::::::::::::::  solution
+
+## Solution
+
+You may have come up with outcomes such as:
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Positive emissions impacts
 
 As well as reducing emissions from our use of HPC there are typically other sources of positive carbon emissions impact associated with HPC 
 
