@@ -29,6 +29,8 @@ All software, from large scale modelling and simulation on HPC, to the training 
 
 :::::::::::::::::::::::::::::::::::::::: callout
 
+## Do renewable energy sources have zero carbon emissions?
+
 The use of low-carbon sources of electricity such as wind or hydroelectric also reduce the emissions from the electricity we consume by our use of HPC. However, even renewable electricity sources have a carbon cost from the manufacture, operation and decommissioning of the energy source (e.g. wind farm) so there are always reductions in emissions to be gained from reducing energy use. We will talk about how you estimate the impact of different emissions sources, including electricity use, later in this workshop so you can prioritise your effort where it will have the most impact.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -42,9 +44,9 @@ The reduction of energy consumed by work on an HPC system depends on a lot of th
 
 All the different people involved at different stages can impact the energy efficiency of the use case on the HPC system. Some people will only be able to impact one aspect but many people are involved in more than one of these aspects. For example, most researchers using HPC systems make use of software (specifying inputs and specifying the parallel distribution of work) and also design and write their own software (even if this is analysis scripts in a language such as Python).
 
-Collectively, we all take responsibility for the energy consumed by HPC systems and design them and the software that runs on them, and use the software on them to consume as little as possible. We should make sure that, at every step in the process, there is as little waste as possible.
+Collectively, we all take responsibility for the energy consumed by HPC systems and design them and the software that runs on them, and use the software on them to consume as little energy as possible. We should make sure that, at every step in the process, there is as little wasted energy as possible.
 
-Let’s take a look at some of these concepts and some ways that you can become more energy efficient at every stage.
+Let us take a look at some of these concepts and some ways that you can become more energy efficient at every stage.
 
 ![Diagram illustrating the chain of electricity use in server/HPC setup](./fig/03_energy_efficiency.png "Diagram illustrating the chain of electricity use in server/HPC setup")
 
@@ -52,15 +54,52 @@ Let’s take a look at some of these concepts and some ways that you can become 
 
 ### Fossil fuels and high-carbon sources of energy
 
-Across the world, a lot of electricity is produced through burning fossil fuels, [usually coal](https://ourworldindata.org/grapher/world-electricity-by-source). Fossil fuels are made from decomposing plants and animals. These fuels are found in the Earth's crust and contain carbon and hydrogen, which can be burned for energy. Coal, oil, and natural gas are examples of fossil fuels.
+Across the world, a lot of electricity is produced through burning fossil fuels, [usually coal or gas](https://ourworldindata.org/grapher/world-electricity-by-source). Fossil fuels are made from decomposing plants and animals. These fuels are found in the Earth's crust and contain carbon and hydrogen, which can be burned for energy. Coal, oil, and natural gas are examples of fossil fuels.
 
 ![Diagram of link from fossil fuels to energy](./fig/04_high-carbon_sources.png "Diagram of link from fossil fuels to energy")
 
-Most people think electricity is clean. Our hands don't get dirty when we plug something into a wall, and our laptops don't need exhaust pipes. However, in some geographical regions most electricity comes from burning fossil fuels and energy supply is the [single most significant](https://www.eea.europa.eu/data-and-maps/daviz/change-of-co2-eq-emissions-2#tab-chart_4) cause of carbon emissions. For HPC services hosted in such locations, we can draw a direct line from electricity to carbon emissions and, hence, electricity can be considered a proxy for carbon. If our goal is to be carbon efficient in out use of HPC hosted in these regions, then it means our goal is also to be energy efficient since energy is a proxy for carbon. This means using the least amount of energy possible per unit of work.
+Most people think electricity is clean. Our hands do not get dirty when we plug something into a wall, and our laptops do not need exhaust pipes. However, in some geographical regions most electricity comes from burning fossil fuels and energy supply is the [single most significant](https://www.eea.europa.eu/data-and-maps/daviz/change-of-co2-eq-emissions-2#tab-chart_4) cause of carbon emissions. For HPC services hosted in such locations (where the *carbon intensity* of electricity generation is high), we can draw a direct line from electricity to carbon emissions and, hence, electricity can be considered a proxy for carbon. If our goal is to be carbon efficient in out use of HPC hosted in these regions, then it means our goal is also to be energy efficient since energy is a proxy for carbon. This means using the least amount of energy possible per unit of work.
 
-In the UK (where ARCHER2 is housed) GHG emissions from energy generation in 2023 make up 11.5% of total emissions. The emissions from electricity generation have dropped by over 78% from 1990 to 2023. (Data from UK Government: [2023 UK greenhouse gas emissions, provisional figures](https://assets.publishing.service.gov.uk/media/6604460f91a320001a82b0fd/uk-greenhouse-gas-emissions-provisional-figures-statistical-release-2023.pdf).) In locations where electricity generation is decarbonising so quickly, measuring electricity use from our use of HPC and using it as proxy for carbon does not make as much sense as for regions where electricity generation has a high *carbon intensity*. Reducing electricity use is still part of the goal of greener use of HPC but other (embodied) sources of emissions become more important. We will discuss this later in this workshop.
+In the UK (where ARCHER2 is housed), GHG emissions from energy generation in 2023 make up a much smaller proportion of emissions - 11.5% of total UK emissions. This is the 5th largest component of UK emissions, behind domestic transport (29%), buildings and product use (20%), industry (15%) and agriculture (12%). The emissions from electricity generation have dropped by over 78% from 1990 to 2023. (Data from UK Government: [2023 UK greenhouse gas emissions, provisional figures](https://assets.publishing.service.gov.uk/media/6604460f91a320001a82b0fd/uk-greenhouse-gas-emissions-provisional-figures-statistical-release-2023.pdf).) In locations where electricity generation is decarbonising so quickly, measuring electricity use from our use of HPC and using it as proxy for carbon does not make as much sense as for regions where electricity generation has a high *carbon intensity*. Reducing electricity use is still part of the goal of greener use of HPC but other (embodied) sources of emissions become more important. We will discuss this later in this workshop.
+
+:::::::::::::::::::::::::::::::::::::::: callout
+
+## UK reduced emissions driven by electricity generation changes
+
+> "Between 1990 and 2023, UK territorial carbon dioxide emissions decreased by 49.8%, and
+> total greenhouse gas emissions by 52.7%. The largest factor behind this long-term decrease
+> was the change in the mix of fuels being used for electricity generation, with a shift away first
+> from coal to gas in the 1990s, and more recently to renewable energy sources. This was
+> combined with lower electricity demand, owing to greater efficiency resulting from
+> improvements in technology and a decline in the relative importance of energy intensive
+> industries. Overall inland energy consumption is provisionally estimated to have decreased by
+> 24.1% since 1990..."
+
+From: [2023 UK greenhouse gas emissions, provisional figures](https://assets.publishing.service.gov.uk/media/6604460f91a320001a82b0fd/uk-greenhouse-gas-emissions-provisional-figures-statistical-release-2023.pdf)
+
+While there is still a lot of work to be done on decarbonisiong the UK electricity grid it is clear that further reductions in UK carbon emissions increasingly need to focus on other sources of carbon emissions.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 <!-- Put in exercise here on estimating emissions from ARCHER2 electricity use in different carbon intensity regimes -->
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Carbon emissions from HPC systems
+
+One estimate of the power draw of ARCHER2 is 2.6 MW. Mean carbon intensities from different UK regions in 2024 give low emissions regions as 26 gCO<sub>2</sub>e/kWh, medium emissions regions as 140 gCO<sub>2</sub>e/kWh and high emissions regions as 280 gCO<sub>2</sub>e/kWh. What would the carbon emissions be from 1 year of ARCHER2 operations in the three different emissions regimes?
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+
+
+:::::::::::::::::::::::::
+
+
 
 ### Low-carbon sources of energy
 
