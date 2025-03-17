@@ -81,7 +81,6 @@ While there is still a lot of work to be done on decarbonisiong the UK electrici
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-<!-- Put in exercise here on estimating emissions from ARCHER2 electricity use in different carbon intensity regimes -->
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -105,9 +104,9 @@ TBC
 
 ### Low-carbon sources of energy
 
-Clean energy comes from renewable, zero-emission sources that do not pollute the atmosphere when used and save energy through energy-efficient practices. There are overlaps between clean, green, and renewable energy. Here's how we can differentiate between them:
+Clean energy comes from renewable, zero-emission sources that do not pollute the atmosphere when used and save energy through energy-efficient practices. There are overlaps between clean, green, and renewable energy. Here is how we can differentiate between them:
 
-- **Clean energy** - doesn’t produce carbon emissions e.g. nuclear.
+- **Clean energy** - does not produce carbon emissions e.g. nuclear.
 - **Green energy** - sources from nature
 - **Renewable energy** - sources will not expire e.g. solar, wind
 
@@ -118,9 +117,9 @@ Clean energy comes from renewable, zero-emission sources that do not pollute the
 - A kilowatt (kW) is, therefore, also a rate corresponding to 1000 joules per second.
 - A kilowatt-hour (kWh) is an alternative measure of energy (that is commonly used instead of J) corresponding to one kilowatt of power sustained for one hour.
 
-## How to improve energy efficiency
+## Factors that impact energy efficiency
 
-Now that we know how energy is produced and the associated cost in terms of emissions, based on whether low- or high-carbon energy sources are used, let's take a look at some of the ways energy efficiency can be improved on HPC systems. Understanding power usage effectiveness and energy proportionality means you can make better decisions in terms of how to use energy in the most efficient way possible and waste less.
+Now that we know how energy is produced and the associated cost in terms of emissions, based on whether low- or high-carbon energy sources are used. There are other concepts associated with operating HPC services that impact how much energy is used and so our energy efficiency. In particular, *Power Usage Effectiveness (PUE)* and *Energy proportiionality*.
 
 ### Power usage effectiveness
 
@@ -134,6 +133,8 @@ In many cases, PUE is not constant over time for the data centres that host HPC 
 
 :::::::::::::::::::::::::::::::::::::::: callout
 
+## ARCHER2 PUE
+
 The PUE of the Advanced Data Centre (ACF) facility that hosts the ARCHER2 system in Edinburgh typically has a PUE of 1.1 as measured over a calendar year. As the ACF is situated in Scotland where air temperatures are cool, it benefits from free cooling for a large proportion of the year.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -144,13 +145,13 @@ The PUE of the Advanced Data Centre (ACF) facility that hosts the ARCHER2 system
 
 Utilisation measures how much of a computer's resources are used, usually given as a percentage. A fully utilised computer running at its maximum capacity has a high percentage, while an idle computer with no utilisation has a lower percentage.
 
-The relationship between power and utilization is not proportional. Mathematically speaking, proportionality between two variables means their ratios are equivalent. For example, at 0% utilisation, a computer may draw 100 W; at 50%, it draws 180 W; and at 100%, it draws 200 W. The relationship between power consumption and utiliation is not linear and does not cross the origin.
+The relationship between power and utilisation is not linearly proportional. Mathematically speaking, linear proportionality between two variables means their ratios are equivalent. As an example of the nonlinear realtionship between utilisation and power draw, at 0% utilisation, a computer may draw 100 W; at 50%, it draws 180 W; and at 100%, it draws 200 W. The relationship between power consumption and utiliation is not linear and does not cross the origin.
 
 ![Schematic graph showing relationship between power draw and utilisation of computer infrastructure](./fig/06_energy_proportionality_updated.png "Schematic graph showing relationship between power draw and utilisation of computer infrastructure")
 
 Because of this, the more we utilise a computer, the more efficient it becomes at converting electricity to practical computing operations. One way to improve hardware efficiency is to run the workload on as few servers as possible, with the servers running at the highest utilisation rate, maximising energy efficiency.
 
-However, the story for HPC use is actually less straightforward than this description. The energy proportionality argument holds when the performance of an application is *compute bound* - that is, when the output from the application you are running is strongly correlated with the performance of the processors (actually, for HPC, it is typically the performance of the floating point units in the processors). The performance of many HPC applications is actually *memory-bound* so the performance is dependent on the performance of data moving from memory to be processed. In these cases, once you are above a certain performance threshold for the floating point units any additional power draw does not lead to increased utilisation (i.e. useful performance for the application); the more you you utilise the processor, the more power you draw but you do not get any additional useful performance so this is just wasted electricity, reducing the energy efficiency of your use. It becomes even more complex as you run parallel applications (as typically happens on HPC resources) as the change in parallel distribution can change the balance between compute bound and memory bound performance for your application.
+However, the story for HPC use is actually less straightforward than this description. The energy proportionality argument holds when the performance of an application is *compute bound* - that is, when the output from the application you are running is strongly correlated with the performance of the processors (actually, for HPC, it is typically the performance of the floating point units in the processors). The performance of many HPC applications is actually *memory-bound* so the performance is dependent on the performance of data moving from memory to be processed. In these cases, once you are above a certain performance threshold for the floating point units any additional power draw does not lead to increased utilisation (i.e. useful performance for the application); the more you you utilise the processor, the more power you draw but you do not get any additional useful performance so this is just wasted electricity, reducing the energy efficiency of your use. It becomes even more complex as you run parallel applications (as typically happens on HPC resources) as the change in parallel distribution can change the balance between compute bound and memory bound performance for your application; meaning that you may need to choose different strategies to maximise energy efficiency at different parallelisations even for the same problem and software.
 
 :::::::::::::::::::::::::::::::::::::::: callout
 
@@ -160,17 +161,40 @@ Performance of HPC applications can be: compute-bound, memory-bound, IO-bound, c
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Given this complexity, what practical steps can you take to decide on how to run in an energy-efficient manner on HPC systems? The answer is to run some test cases and measure the energy consumption and performance, then change parameters (such as processor power cap, or number of parallel processes) and measure again to see what the impact is on both performance and energy consumption. Using a benchmarking approach such as this, you can practically improve the energy efficiency of your use of HPC.
-
-<!-- Show effect of reducing processor performance on energy efficiency on ARCHER2 -->
-
-<!-- Exercise with energy use and performance data, attendees to use this to propose the most energy efficienct configuration for a simulation run -->
-
 #### Static power draw
 
 The static power draw of a computer is **how much electricity is drawn when in an idle state**. The static power draw varies by configuration and hardware components, but all parts have some static power draw. This is one of the reasons that PCs, laptops, and end-user devices have power-saving modes. If the device is idle, it will eventually trigger a hibernation mode and put the disk and screen to sleep or even change the CPU's frequency. These power-saving modes save on electricity, but they have other trade-offs, such as a slower restart when the device wakes up.
 
 HPC systems are usually not configured for aggressive or even minimal power saving when idle. Many use cases running on servers demand total capacity as quickly as possible because the server needs to respond to rapidly changing demands, which leads to many servers in idle modes during low-demand periods. An idle server has a carbon cost from both the embedded carbon as well as its inefficient utilisation. This is one reason why the goal of many HPC systems is to maximise utilisation.
+
+### Practical advice
+
+Given this complexity, what practical steps can you take to decide on how to run in an energy-efficient manner on HPC systems? The answer is to run some test cases and measure the energy consumption and performance, then change parameters (such as processor power cap, or number of parallel processes) and measure again to see what the impact is on both performance and energy consumption. Using a benchmarking approach such as this, you can practically improve the energy efficiency of your use of HPC.
+
+If you happen to be a developer of the software you are using then you may also be able to change the algorithms, data layout and other aspects of the software to improve energy efficiency. Such approaches are beyond the scope of this workshop but benchmarking energy consumption also form a core component of this work.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Carbon emissions from HPC systems
+
+An application (GROMACS) running on ARCHER2 has the following performance characteristics and energy use at different node counts and different CPU frequency settings. What is the most energy efficient combination of node count and CPU frequency for these types of calculations, what is the worst and how large is the percentage difference between the best and worst cases?
+
+|  | 2.0 GHz |  |  2.25 GHz + boost |  |
+| Node count | ns/day | kWh | ns/day | kWh |
+|---:|---:|---:|---:|---:|
+| 1 | 12 | 1000 | 15 | 2200 |
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
+
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
