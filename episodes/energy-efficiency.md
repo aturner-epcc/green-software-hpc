@@ -177,18 +177,31 @@ If you happen to be a developer of the software you are using then you may also 
 
 ## Exercise: Carbon emissions from HPC systems
 
-An application (GROMACS) running on ARCHER2 has the following performance characteristics and energy use at different node counts and different CPU frequency settings. What is the most energy efficient combination of node count and CPU frequency for these types of calculations, what is the worst and how large is the percentage difference between the best and worst cases?
+An application (GROMACS) running on ARCHER2 has the following performance characteristics and energy use at different node counts and different CPU frequency settings. What are the most energy efficient combinations in kWh/ns of node count and CPU frequency for these types of calculations, what is the worst and how large is the percentage difference between the best and worst cases? 
 
-|  | 2.0 GHz |  |  2.25 GHz + boost |  |
-| Node count | ns/day | kWh | ns/day | kWh |
-|---:|---:|---:|---:|---:|
-| 1 | 12 | 1000 | 15 | 2200 |
+|  | | 2.0 GHz |  |  2.25 GHz + boost |  |
+| Node count | ns simulated | Runtime (s) | kWh | Runtime (s) | kWh |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 0.020 | 369 | 0.0464 | 288 | 0.0464 |
+| 2 | 0.020 | 198 | 0.0450 | 156 | 0.0465 |
+| 3 | 0.020 | 155 | 0.0438 | 109 | 0.0465 |
+| 4 | 0.020 | 117 | 0.0471 |  93 | 0.0513 | 
 
 :::::::::::::::  solution
 
 ## Solution
 
-TBC
+We can compute the energy efficiency in kWh/ns by dividing the energy used by the number of ns simulated:
+
+|  | | 2.0 GHz |  |  2.25 GHz + boost |  |
+| Node count | ns simulated | Runtime (s) | kWh/ns | Runtime (s) | kWh/ns |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 0.020 | 369 | 2.32 | 288 | 2.32 |
+| 2 | 0.020 | 198 | 2.25 | 156 | 2.32 |
+| 3 | 0.020 | 155 | 2.19 | 109 | 2.32 |
+| 4 | 0.020 | 117 | 2.36 |  93 | 2.56 |
+
+So, the most energy efficient combination is 3 nodes at 2 GHz CPU clock frequency and the worst is 4 nodes with 2.25 GHz + boost CPU clock frequency. The worst case is around 17% less energy efficient than the best case. While this difference may not amount to much energy for a single run, if hundreds or thousands of simulations are run as part of a project this can lead to a significant reduction in consumed energy.
 
 :::::::::::::::::::::::::
 
