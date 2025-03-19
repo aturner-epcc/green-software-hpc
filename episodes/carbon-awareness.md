@@ -1,7 +1,7 @@
 ---
 title: Carbon Awareness
 teaching: 20
-exercises: 10
+exercises: 15
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
