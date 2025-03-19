@@ -1,5 +1,5 @@
 ---
-title: Climate Commitments
+title: Reducing Emissions
 teaching: 20
 exercises: 0
 ---
@@ -24,7 +24,7 @@ exercises: 0
 ## Introduction
 
 In recent years, many economic actors have sought to reach different climate goals by making
-various commitments.
+various commitments to reducing carbon emissions.
 
 The terms "net zero", "carbon neutral", "carbon negative" and "climate neutral" have been
 used interchangeably with the primary objective to remove, reduce and prevent carbon emissions
