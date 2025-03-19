@@ -50,9 +50,11 @@ Carbon intensity varies by location since some regions have an energy mix contai
 
 | Type | Regions | Carbon Intensity (gCO<sub>2</sub>e/kWh) |
 |--|------|------:|
-| Low | N. Scotland, S. Scotland, N.E. England | 26 |
-| Medium | E. England, | 130 |
-| High | S.W. England, S. Wales, | 280 |
+| Low | N. Scotland, S. Scotland, N.E. England, N.W. England | 22 - 48 |
+| Low Medium | N. Wales | 77 |
+| Medium | E. England, London, W. Midlands, S.E. England, Yorkshire | 108 - 135 |
+| High Medium | S. England | 186 - 203 |
+| High | S.W. England, S. Wales, | 242 - 255 |
 
 Similarly, this table compares values across the world in 2023 (ref: [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity?tab=table)):
 

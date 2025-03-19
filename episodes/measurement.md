@@ -94,7 +94,7 @@ You can calculate this on a per job basis or for a larger grouping of HPC use - 
 
 ## Include failed jobs and jobs that did not produce useful output
 
-While it can be tempting to only include the use of HPC that produced useful output in our emissions calculations this should be avoided. The true amount of emissions includes **all** of our HPC system use to get us to the results we use and so failed jobs (due to errors) or calculations that did not produce useful output must be included. On the positive side, one of the ways we can reduce our emissions from use of HPC systems is to be more careful and eliminate emissions arising from these types of jobs.
+While it can be tempting to only include the use of HPC that produced useful output in our emissions calculations this should be avoided. The true amount of emissions includes **all** of our HPC system use to get us to the results we use and so failed jobs (due to errors) or calculations that did not produce useful output must be included. On the positive side, one of the ways we can reduce our emissions from use of HPC systems is to be more careful and eliminate emissions arising from these types of non-productive jobs.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -167,28 +167,15 @@ So, for the ARCHER2 example, the process for computing your total energy use bec
 
 Once you have your energy use then you need to convert this to emissions using the carbon intensity for the electricity supply for the HPC system. In most cases, HPC systems are powered by the energy grid and many energy grids provide details on the carbon intensity as a function of time.
 
-For the UK, the carbon intensity is dependent on location and time. You can access the values through different web services but one that is commonly used is the [Carbon Intensity API](https://carbonintensity.org.uk). Carbon intensity is reported for every region every 30 minute interval. To estimate your emissions you can either use the fine grained intensity matched to the run times of your HPC system use or use an aggregate value over a longer period. The aggregate value is a simpler choice for a first estimate. The table below shows the mean carbon intensities for the different regions of the UK national grid for 2024 ordered from lowest to highest.
+As we saw earlier, for the UK, the carbon intensity is dependent on location and time. You can access the values through different web services but one that is commonly used is the [Carbon Intensity API](https://carbonintensity.org.uk). Carbon intensity is reported for every region every 30 minute interval. To estimate your emissions you can either use the fine grained intensity matched to the run times of your HPC system use or use an aggregate value over a longer period. The aggregate value is a simpler choice for a first estimate. The table below shows the approximate average carbon intensities for the different regions of the UK national grid for 2024 ordered from lowest to highest.
 
-| Region | Mean 2024 CI (gCOe/kWh) |
-|---|--:|
-| NE England | 22 |
-| S Scotland| 26 |
-| N Scotland | 30 |
-| NW England | 48 |
-| N Wales | 77 |
-| E England | 108 |
-| London | 125 |
-| W Midlands | 125 |
-| SE England | 135 |
-| Yorkshire | 135 |
-| S England | 186 |
-| E Midlands | 203 |
-| SW England | 242 |
-| S Wales | 255 |
-
-For the UK, where you place your HPC system can have a tenfold impact on emissions from energy use.
-
-<!-- TODO: Add exercise on computing operational emissions -->
+| Type | Regions | Carbon Intensity (gCO<sub>2</sub>e/kWh) |
+|--|------|------:|
+| Low | N. Scotland, S. Scotland, N.E. England, N.W. England | 22 - 48 |
+| Low Medium | N. Wales | 77 |
+| Medium | E. England, London, W. Midlands, S.E. England, Yorkshire | 108 - 135 |
+| High Medium | S. England | 186 - 203 |
+| High | S.W. England, S. Wales, | 242 - 255 |
 
 ### 3. Determine embodied emissions
 
@@ -202,9 +189,9 @@ use are captured in the Scope 2 emissions estimates.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Calculating the embodied emissions can be more difficult than the operational emissions from energy 
-consumption as it can be more difficult to get information on embodied emissions from hardware. You
+consumption as it can be more difficult to get information on embodied emissions associated with HPC hardware. You
 may, of course, be lucky and the HPC system you are using could already provide estimates of the 
-embodied emissions which you can use.
+embodied emissions which you can use!
 
 If you need to estimate this yourself, the major contributors to embodied emissions are likely to be:
 
@@ -252,7 +239,21 @@ the embodied emissions from the HPC system hardware itself.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-<!-- TODO: Add exercise on computing embodied emissions for a different (GPU-based) system -->
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Carbon emissions from HPC systems
+
+One estimate of the power draw of ARCHER2 is 2.6 MW. Mean carbon intensities from different UK regions in 2024 give low emissions regions as 26 gCO<sub>2</sub>e/kWh, medium emissions regions as 140 gCO<sub>2</sub>e/kWh and high emissions regions as 280 gCO<sub>2</sub>e/kWh. What would the carbon emissions be from 1 year of ARCHER2 operations in the three different emissions regimes?
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
 
 ### 4. Compute your total HPC emissions
 
@@ -280,7 +281,34 @@ make more sense to compute `E * I` on a per-job basis using the carbon intensity
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-<!-- TODO: Add exercise to compute total emissions from HPC system use -->
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Computing total emissions from HPC system use
+
+You are using (or running) a GPU-based HPC service and a particular project has used the
+following amounts of resource over 3 months
+
+- 1,100 GPUh
+- 3,542,000 kWh
+
+The total embodied emissions for the service are 6,500,000 kgCO2e, the service lifetime 
+is 7 years and there are 1000 compute nodes each with 8 GPU. The service is hosted in a
+location with a carbon intensity of 40 gCO<sub>2</sub>e/kWh.
+
+1. Compute the scope 2 emissions for the project use
+2. Compute the scope 3 emissions rate in kgCO2e/GPUh
+3. Compute the scope 3 emissions for the project use
+4. Do scope 2 or scope 3 emissions dominate or are they evenly matched?
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
 
 ## HPC Carbon Intensity (HPC-CI) specification
 
@@ -361,7 +389,26 @@ and the total number of functional units - say 950 ns simulated - and combine th
 HPC-CI  = 1500 kgCO2e / 950 ns = 1.58 kgCO2e/ns
 ```
 
-<!-- TODO: Add exercise on calculating HPC-CI -->
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: HPC-CI rate 
+
+In the previous exercise we computed the total HPC system emissions for 3 months of project
+use to be YYYY kgCO2/e. The project was modelling the climate and managed to simulate 3,680 years of Earth's
+climate during that 3 month period using 1,100 GPUh of resource.
+
+1. What is the HPC-CI in kgCO2e per simulated year?
+2. What is the HPC-CI in kgCO2e per GPUh?
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: callout
 
