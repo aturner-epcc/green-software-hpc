@@ -1,7 +1,7 @@
 ---
 title: Carbon Awareness
 teaching: 20
-exercises: 5
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -42,33 +42,57 @@ In reality, the carbon intensity of renewable sources still have some GHG emissi
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Once on a grid, you can't control which sources supply the electricity you are using; you simply get a mix of everything. So, your carbon intensity will be a mix of all the current power sources in a grid, both the lower- and the higher-carbon sources.
+Once on a grid, you can not control which sources supply the electricity you are using; you simply get a mix of everything. So, your carbon intensity will be a mix of all the current power sources in a grid, both the lower- and the higher-carbon sources.
 
 ### Variability of carbon intensity
 
-Carbon intensity varies by location since some regions have an energy mix containing more clean energy sources than others. This table shows the median carbon intensity for UK regions over 2024 (ref.):
+Carbon intensity varies by location since some regions have an energy mix containing more clean energy sources than others. This table shows the average carbon intensity for UK regions over 2024 (ref: [electricityinfo.org regional carbon intensity history](https://electricityinfo.org/region-archive/)):
 
-| Region | Median Carbon Intensity (gCO<sub>2</sub>e/kWh) |
+| Type | Regions | Carbon Intensity (gCO<sub>2</sub>e/kWh) |
+|--|------|------:|
+| Low | N. Scotland, S. Scotland, N.E. England | 26 |
+| Medium | E. England, | 130 |
+| High | S.W. England, S. Wales, | 280 |
+
+Similarly, this table compares values across the world in 2023 (ref: [Our World In Data](https://ourworldindata.org/grapher/carbon-intensity-electricity?tab=table)):
+
+| Country | Carbon Intensity (gCO<sub>2</sub>e/kWh) |
 |--------|------:|
-| S. Scotland | ??? |
-
-Similarly, this table compares values across the world in 2023 (ref.):
-
-| Country | Median Carbon Intensity (gCO<sub>2</sub>e/kWh) |
-|--------|------:|
-| UK | ??? |
+| France | 56 |
+| UK | 238 |
+| USA | 369 |
+| Germany | 381 |
+| Russia | 441 |
+| Japan | 485 |
+| Australia | 549 |
 
 Carbon intensity also changes over time due to the inherent variability of renewable energy caused by the unpredictability of weather conditions. For example, when it's cloudy or the wind isn't blowing, carbon intensity increases since more of the electricity in your mix comes from sources that emit carbon.
 
 ![Diagram illustrating change in carbon intensity over time due to changes in atmospheric conditions](./fig/08_variability_CI.png "Diagram illustrating change in carbon intensity over time due to changes in atmospheric conditions")
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Carbon emissions from HPC systems
+
+One estimate of the power draw of ARCHER2 is 2.6 MW. Mean carbon intensities from different UK regions in 2024 give low emissions regions as 26 gCO<sub>2</sub>e/kWh, medium emissions regions as 140 gCO<sub>2</sub>e/kWh and high emissions regions as 280 gCO<sub>2</sub>e/kWh. What would the carbon emissions be from 1 year of ARCHER2 operations in the three different emissions regimes?
+
+:::::::::::::::  solution
+
+## Solution
+
+TBC
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
+
 ### Dispatchability & curtailment
 
-Electricity demand varies during the day and supply always needs to be able to meet that demand. A brownout (a dip in the voltage level of the power line) occurs if a utility doesn't produce enough electricity to meet demand. Conversely, if a utility produces more electricity than is required, then to stop infrastructure burning out, breakers trip and we have blackouts.
+Electricity demand varies during the day and supply always needs to be able to meet that demand. A brownout (a dip in the voltage level of the power line) occurs if a utility does not produce enough electricity to meet demand. Conversely, if a utility produces more electricity than is required, then to stop infrastructure burning out, breakers trip and we have blackouts.
 
 There needs to be a balance between the demand and supply of electricity at all times and the responsibility for this usually falls to the utility provider.
 
-In the case of fossil fuels such as coal, it is easier to control the power produced for this supply; this is called **dispatchability**. However, in the case of renewable power sources such as wind farms, the power produced cannot easily be controlled (we can't control how much the wind blows). If the power source produces more electricity than is needed, that electricity is thrown away; this is called **curtailment**.
+In the case of fossil fuels such as coal, it is easier to control the power produced for this supply; this is called **dispatchability**. However, in the case of renewable power sources such as wind farms, the power produced cannot easily be controlled (we cannot control how much the wind blows). If the power source produces more electricity than is needed, that electricity is thrown away; this is called **curtailment**.
 
 ### Marginal carbon intensity
 
@@ -76,7 +100,7 @@ If you suddenly need to access more power - for example, you need to turn on a l
 
 Marginal carbon intensity is the carbon intensity of the power plant that would have to be employed to meet any new demand.
 
-Fossil-fueled power plants rarely scale down to 0. They have a minimum functioning threshold, and some don't scale; they are considered a consistent, always-on baseload. Because of this, we sometimes have the scenario where we curtail (throw away) renewable energy while still consuming energy from fossil fuel power plants.
+Fossil-fueled power plants rarely scale down to 0. They have a minimum functioning threshold, and some do not scale; they are considered a consistent, always-on baseload. Because of this, we sometimes have the scenario where we curtail (throw away) renewable energy while still consuming energy from fossil fuel power plants.
 
 ![Diagram illustrating marginal carbon intensity and curtailment](./fig/09_marginal_CI.png "Diagram illustrating marginal carbon intensity and curtailment")
 
@@ -91,11 +115,12 @@ When the demand for electricity goes down, utilities need to **reduce** the supp
 1. **Buy less energy from fossil fuel plants.**
 
 ![Diagram illustrating reduction in demand from fossil fuel plants](./fig/10_marginal_CI.png "Diagram illustrating reduction in demand from fossil fuel plants")
+
 Energy from fossil fuel plants is usually the most expensive so this is the preferred method. This directly translates to burning fewer fossil fuels.
 
 2. **Buy less energy from renewable sources**.
 
-Renewable sources are the cheapest, so they prefer not to do this. If a renewable source doesn't manage to sell all of its electricity, it has to throw the rest away.
+Renewable sources are the cheapest, so they prefer not to do this. If a renewable source does not manage to sell all of its electricity, it has to throw the rest away.
 
 Reducing the amount of electricity consumed by your use of HPC can help decrease the energy's carbon intensity as the first thing to be scaled back are fossil fuels.
 
@@ -113,7 +138,7 @@ If you are curtailing, it means you have excess energy you could dispatch. Renew
 
 Fossil fuels are inherently dispatchable; they can quickly increase energy production by burning more. However, coal costs money, so this is the least preferred solution.
 
-Energy markets are some of the most complex markets in the world so the above explanation is a simplification. But what's important to understand is that our goal is to increase investment into lower carbon energy sources, like renewables, and decrease investment into higher carbon sources, like coal. The best way to ensure money flows in the right direction is to make sure you use electricity with the least carbon intensity.
+Energy markets are some of the most complex markets in the world so the above explanation is a simplification. But what is important to understand is that our goal is to increase investment into lower carbon energy sources, like renewables, and decrease investment into higher carbon sources, like coal. The best way to ensure money flows in the right direction is to make sure you use electricity with the least carbon intensity.
 
 ## How to be more carbon aware
 
@@ -153,7 +178,7 @@ This requires you to have the ability to run on different HPC resources in diffe
 
 #### Temporal shifting
 
-If you can't shift your computation spatially to another region, another option you have is to shift to another time. Perhaps later in the day or night when it's sunnier or windier and, therefore, the carbon intensity is lower. This is called temporal demand shifting. We can predict future carbon intensity reasonably well through advances in weather forecasting.
+If you cannot shift your computation spatially to another region, another option you have is to shift to another time. Perhaps later in the day or night when it's sunnier or windier and, therefore, the carbon intensity is lower. This is called temporal demand shifting. We can predict future carbon intensity reasonably well through advances in weather forecasting.
 
 ![Diagram illustrating spatial demand shifting](./fig/15_temporal_shifting.png "Diagram illustrating spatial demand shifting")
 
@@ -179,15 +204,40 @@ Eco mode is an example of demand shaping. Eco modes are found in everyday applia
 
 Software or HPC services can also have eco modes that can - either automatically or with user consent - make decisions to reduce carbon emissions.
 
-One example of this is video conferencing software that adjusts streaming quality automatically. Rather than streaming at the highest quality possible at all times, it reduces the video quality to prioritize audio when the bandwidth is low.
+One example of this is video conferencing software that adjusts streaming quality automatically. Rather than streaming at the highest quality possible at all times, it reduces the video quality to prioritise audio when the bandwidth is low.
 
 Another example is TCP/IP. The transfer speed increases in response to how much data is broadcast over the wire.
 
-A third example is progressive enhancement with the web. The web experience improves depending on the resources and bandwidth available on the end user’s device.
+A third example is progressive enhancement with the web. The web experience improves depending on the resources and bandwidth available on the end user's device.
 
 Demand shaping is related to a broader concept in sustainability, which is to reduce consumption. We can achieve a lot by becoming more efficient with resources, but we also need to consume less at some point.
 
 As green users of HPC, we would consider cancelling or reducing the power intensity of our workflow when the carbon intensity is high instead of demand shifting - reducing the energy demands of our work.
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Demand shaping in HPC
+
+A typical HPC system has a wide variety of jobs to schedule and different HPC systems have different scheduling and charging policies for jobs that run on them. Write down some ideas on how you could potentially modify the scheduling and charging of jobs to enable demand shaping on an HPC system?
+
+:::::::::::::::  solution
+
+## Solution
+
+- Scheduling based on power intensity
+  - Manual: users place jobs into different queues based on predicted power intensity. Charging discounts for users who use this facility
+  - Automatic: system detects/predicts power intensity of jobs and schedules accordingly
+- Credit based system:
+  - Earning and spending periods: during earning period, users earn priority tokens based on how emissions efficient they are (would start with tokens and subtract to stop more tokens for more use). Spend period, users with most tokens get priority on system
+  - See Fugaku approach
+- Power capping approaches:
+  - System power cap fluctuates with grid carbon intensity
+  - Need a tool to distribute power cap amongst jobs
+  - See HPE PowerSched and similar tools
+
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
