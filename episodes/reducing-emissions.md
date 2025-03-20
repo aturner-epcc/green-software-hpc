@@ -46,7 +46,21 @@ Abatement is not enough on its own as there will always be some emissions that c
 
 To balance those residual emissions, we need to look at other mechanisms such as offsets, compensations or neutralisations.
 
-<!-- Exercise to think about how an individual user may implement abatement -->
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Exercise: Strategies for abatement
+
+Abatement is the critical component of carbon emissions reduction strategies. While there are different ways in which an HPC service as a whole may implement abatement, can you think of actions that individual users could take to implement abatement in their use of HPC systems?
+
+:::::::::::::::  solution
+
+## Solution
+
+- TBC
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Offsets
 
